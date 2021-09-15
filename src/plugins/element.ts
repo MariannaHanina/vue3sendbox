@@ -1,11 +1,22 @@
 import { App } from 'vue';
 import { ElButton } from 'element-plus';
 
-export default (app: App): void => {
-  // Global config for Element Plus
-  app.config.globalProperties.$ELEMENT = {};
+export type ComponentSize = 'large' | 'medium' | 'small' | 'mini';
 
-  // Globaly added components from library.
-  // Add here for using in app.
-  app.use(ElButton)
+export interface InstallOptions {
+  size: ComponentSize;
+  zIndex: number;
+  // eslint-disable-next-line
+  locale?: any;
+}
+
+export default {
+  install: (app: App, options?: InstallOptions): void => {
+    // Global config for Element Plus
+    app.config.globalProperties.$ELEMENT = options || {};
+
+    // Globaly added components from library.
+    // Add here for using in app.
+    app.use(ElButton)
+  }
 }
