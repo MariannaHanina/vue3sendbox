@@ -1,5 +1,5 @@
 import { App } from 'vue';
-import { ElButton } from 'element-plus';
+import { ElButton, ElMenu, ElMenuItem } from 'element-plus';
 
 export type ComponentSize = 'large' | 'medium' | 'small' | 'mini';
 
@@ -17,6 +17,9 @@ export default {
 
     // Globaly added components from library.
     // Add here for using in app.
-    app.use(ElButton)
+    app
+      .use(ElButton)
+      .use(ElMenu)
+      .use(ElMenuItem);
   }
 }
