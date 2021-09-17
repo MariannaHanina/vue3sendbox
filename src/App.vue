@@ -1,5 +1,5 @@
 <template>
-  <el-menu mode="horizontal" :router="true">
+  <el-menu mode="horizontal" :router="true" :default-active="activeIndex">
     <el-menu-item index="/">
       Home
     </el-menu-item>
@@ -11,10 +11,18 @@
 </template>
 
 <script lang="ts">
+import { defineComponent, ref } from 'vue';
 
-export default {
+export default defineComponent({
   name: 'App',
-};
+  setup () {
+    const activeIndex = ref('/');
+
+    return {
+      activeIndex,
+    }
+  },
+});
 
 </script>
 
