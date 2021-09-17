@@ -6,5 +6,5 @@ module.exports = {
   },
   transformIgnorePatterns: [
     'node_modules/(?!element-plus/.*)',
-  ]
+  ],
 }

@@ -7,8 +7,8 @@ const mockRouterGo = jest.fn();
 
 jest.mock('vue-router', () => ({
   useRouter: () => ({
-    go: mockRouterGo
-  })
+    go: mockRouterGo,
+  }),
 }));
 
 describe('NotFound.vue', () => {
@@ -18,9 +18,9 @@ describe('NotFound.vue', () => {
     wrapper = mount(NotFoundPage, {
       global: {
         components: {
-          ElPageHeader
-        }
-      }
+          ElPageHeader,
+        },
+      },
     });
   });
 

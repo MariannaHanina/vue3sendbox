@@ -15,8 +15,8 @@ export default defineComponent({
     };
 
     return {
-      goBack
+      goBack,
     };
-  }
+  },
 });
 </script>
