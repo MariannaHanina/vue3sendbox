@@ -1,18 +1,19 @@
-import { mount, VueWrapper, shallowMount, config } from '@vue/test-utils';
+import { mount, VueWrapper } from '@vue/test-utils';
 import BaseButton from '@/components/BaseButton.vue';
 import { ElButton } from 'element-plus';
 import { ComponentPublicInstance } from 'vue';
 
 describe('BaseButton.vue', () => {
   let wrapper: VueWrapper<ComponentPublicInstance>;
+  const global = {
+    components: {
+      ElButton,
+    },
+  };
 
   beforeEach(() => {
     wrapper = mount(BaseButton, {
-      global: {
-        components: {
-          ElButton,
-        },
-      },
+      global,
     })
   });
 
@@ -56,7 +57,6 @@ describe('BaseButton.vue', () => {
   test('check props.circle passed', async () => {
     const circle = true;
     await wrapper.setProps({ circle });
-    debugger
     expect(wrapper.classes('is-circle')).toBeTruthy();
   });
   test('check props.circle not passed', async () => {
@@ -81,7 +81,6 @@ describe('BaseButton.vue', () => {
 
   test('check emits click after clicking on component', () => {
     wrapper.trigger('click');
-
     expect(wrapper.emitted('click')).toBeTruthy();
     expect(wrapper.emitted('click')?.length).toBe(1);
   });
@@ -91,8 +90,10 @@ describe('BaseButton.vue', () => {
     const slots = {
       default: buttonText,
     };
-    const wrapper = shallowMount(BaseButton, {
+    wrapper.unmount();
+    wrapper = mount(BaseButton, {
       slots,
+      global,
     });
 
     expect(wrapper.text()).toBe(buttonText);

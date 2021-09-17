@@ -1,13 +1,13 @@
 import { App } from 'vue';
 import {
   ElButton,
-  ElMenu,
-  ElMenuItem,
-  ElPageHeader,
   ElCol,
   ElForm,
   ElFormItem,
   ElInput,
+  ElMenu,
+  ElMenuItem,
+  ElPageHeader,
   ElRow,
 } from 'element-plus';
 
@@ -28,15 +28,14 @@ export default {
     // Globaly added components from library.
     // Add here for using in app.
     app
-      .use(ElRow)
-      .use(ElCol)
       .use(ElButton)
-      .use(ElMenu)
-      .use(ElMenuItem)
-      .use(ElPageHeader)
-      .use(ElInput)
+      .use(ElCol)
       .use(ElForm)
       .use(ElFormItem)
-      .use(ElMenuItem);
+      .use(ElInput)
+      .use(ElPageHeader)
+      .use(ElMenu)
+      .use(ElMenuItem)
+      .use(ElRow)
   },
 }

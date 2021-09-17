@@ -79,6 +79,7 @@
 
 <script lang="ts">
 import { defineComponent, ref, reactive } from 'vue';
+import { ElForm } from 'element-plus';
 
 export default defineComponent({
   props: {},
@@ -119,19 +120,29 @@ export default defineComponent({
     },
     )
 
-    const formName = ref(null);
+    const formName = ref<typeof ElForm|null>(null);
     const submitForm = () => {
-      formName.value.validate((valid: boolean) => {
-        if (valid) {
-          alert('submit!')
-        } else {
-          console.log('error submit!!')
-          return false;
-        }
-      })
+      if (formName.value) {
+        formName.value.validate((valid: boolean) => {
+          if (valid) {
+            alert('submit!')
+          } else {
+            console.log('error submit!!')
+            return false;
+          }
+        })
+      }
     }
     return {
-      firstName, text, secondName, number, labelPosition, form, rules, formName, submitForm,
+      firstName,
+      text,
+      secondName,
+      number,
+      labelPosition,
+      form,
+      rules,
+      formName,
+      submitForm,
     }
   },
 });
