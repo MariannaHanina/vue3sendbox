@@ -4,6 +4,11 @@ import {
   ElMenu,
   ElMenuItem,
   ElPageHeader,
+  ElCol,
+  ElForm,
+  ElFormItem,
+  ElInput,
+  ElRow,
 } from 'element-plus';
 
 export type ComponentSize = 'large' | 'medium' | 'small' | 'mini';
@@ -23,9 +28,15 @@ export default {
     // Globaly added components from library.
     // Add here for using in app.
     app
+      .use(ElRow)
+      .use(ElCol)
       .use(ElButton)
       .use(ElMenu)
       .use(ElMenuItem)
-      .use(ElPageHeader);
+      .use(ElPageHeader)
+      .use(ElInput)
+      .use(ElForm)
+      .use(ElFormItem)
+      .use(ElMenuItem);
   },
 }

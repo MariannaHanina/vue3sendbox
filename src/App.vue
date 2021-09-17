@@ -6,6 +6,9 @@
     <el-menu-item index="/about">
       About
     </el-menu-item>
+    <el-menu-item index="/test">
+      Test form
+    </el-menu-item>
   </el-menu>
   <router-view></router-view>
 </template>
