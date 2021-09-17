@@ -10,6 +10,6 @@ const app = createApp(App);
 app.use(store)
   .use(router)
   .use(element, {
-    locale: ru
+    locale: ru,
   })
   .mount('#app');
