@@ -78,7 +78,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, reactive } from 'vue';
 
 export default defineComponent({
   props: {},
@@ -88,14 +88,14 @@ export default defineComponent({
     const text = ref('');
     const number = ref(0);
     const labelPosition = ref('ringht');
-    const form = ref(
+    const form = reactive(
       {
         name: null,
         region: null,
         type: null,
       },
     )
-    const rules = ref({
+    const rules = reactive({
       name: [
         {
           required: true,
