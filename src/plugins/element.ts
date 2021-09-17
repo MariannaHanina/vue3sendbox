@@ -1,5 +1,10 @@
 import { App } from 'vue';
-import { ElButton, ElMenu, ElMenuItem } from 'element-plus';
+import {
+  ElButton,
+  ElMenu,
+  ElMenuItem,
+  ElPageHeader,
+} from 'element-plus';
 
 export type ComponentSize = 'large' | 'medium' | 'small' | 'mini';
 
@@ -20,6 +25,7 @@ export default {
     app
       .use(ElButton)
       .use(ElMenu)
-      .use(ElMenuItem);
+      .use(ElMenuItem)
+      .use(ElPageHeader);
   },
 }
