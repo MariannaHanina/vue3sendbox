@@ -21,5 +21,5 @@ export default {
       .use(ElButton)
       .use(ElMenu)
       .use(ElMenuItem);
-  }
+  },
 }
