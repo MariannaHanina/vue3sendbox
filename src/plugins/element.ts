@@ -1,9 +1,14 @@
 import { App } from 'vue';
 import {
   ElButton,
+  ElCol,
+  ElForm,
+  ElFormItem,
+  ElInput,
   ElMenu,
   ElMenuItem,
   ElPageHeader,
+  ElRow,
 } from 'element-plus';
 
 export type ComponentSize = 'large' | 'medium' | 'small' | 'mini';
@@ -24,8 +29,13 @@ export default {
     // Add here for using in app.
     app
       .use(ElButton)
+      .use(ElCol)
+      .use(ElForm)
+      .use(ElFormItem)
+      .use(ElInput)
+      .use(ElPageHeader)
       .use(ElMenu)
       .use(ElMenuItem)
-      .use(ElPageHeader);
+      .use(ElRow)
   },
 }

@@ -1,11 +1,20 @@
-import { mount, VueWrapper, shallowMount } from '@vue/test-utils';
+import { mount, VueWrapper } from '@vue/test-utils';
 import BaseButton from '@/components/BaseButton.vue';
+import { ElButton } from 'element-plus';
+import { ComponentPublicInstance } from 'vue';
 
 describe('BaseButton.vue', () => {
-  let wrapper: VueWrapper<any>;
+  let wrapper: VueWrapper<ComponentPublicInstance>;
+  const global = {
+    components: {
+      ElButton,
+    },
+  };
 
   beforeEach(() => {
-    wrapper = mount(BaseButton);
+    wrapper = mount(BaseButton, {
+      global,
+    })
   });
 
   afterEach(() => {
@@ -15,15 +24,15 @@ describe('BaseButton.vue', () => {
   test('check props.type = primary', async () => {
     const type = 'primary';
     await wrapper.setProps({ type });
-    expect(wrapper.attributes('type')).toBe(type);
+    expect(wrapper.classes('el-button--primary')).toBeTruthy();
   });
   test('check props.type not passed', async () => {
-    expect(wrapper.attributes('type')).not.toBeDefined();
+    expect(wrapper.classes('el-button--primary')).not.toBeTruthy();
   });
   test('check props.size = medium', async () => {
     const size = 'medium';
     await wrapper.setProps({ size });
-    expect(wrapper.attributes('size')).toBe(size);
+    expect(wrapper.classes('el-button--medium')).toBeTruthy();
   });
   test('check props.size not passed', async () => {
     expect(wrapper.attributes('size')).not.toBeDefined();
@@ -32,47 +41,46 @@ describe('BaseButton.vue', () => {
   test('check props.plain passed', async () => {
     const plain = true;
     await wrapper.setProps({ plain });
-    expect(wrapper.attributes('plain')).toBe('true');
+    expect(wrapper.classes('is-plain')).toBeTruthy();
   });
   test('check props.plain not passed', async () => {
-    expect(wrapper.attributes('plain')).toBe('false');
+    expect(wrapper.classes('is-plain')).not.toBeTruthy();
   });
   test('check props.round passed', async () => {
     const round = true;
     await wrapper.setProps({ round });
-    expect(wrapper.attributes('round')).toBe('true');
+    expect(wrapper.classes('is-round')).toBeTruthy();
   });
   test('check props.round not passed', async () => {
-    expect(wrapper.attributes('round')).toBe('false');
+    expect(wrapper.classes('is-round')).not.toBeTruthy();
   });
   test('check props.circle passed', async () => {
     const circle = true;
     await wrapper.setProps({ circle });
-    expect(wrapper.attributes('circle')).toBe('true');
+    expect(wrapper.classes('is-circle')).toBeTruthy();
   });
   test('check props.circle not passed', async () => {
-    expect(wrapper.attributes('circle')).toBe('false');
+    expect(wrapper.classes('is-circle')).not.toBeTruthy();
   });
   test('check props.loading passed', async () => {
     const loading = true;
     await wrapper.setProps({ loading });
-    expect(wrapper.attributes('loading')).toBe('true');
+    expect(wrapper.classes('is-loading')).toBeTruthy();
   });
   test('check props.loading not passed', async () => {
-    expect(wrapper.attributes('loading')).toBe('false');
+    expect(wrapper.classes('is-loading')).not.toBeTruthy();
   });
   test('check props.disabled passed', async () => {
     const disabled = true;
     await wrapper.setProps({ disabled });
-    expect(wrapper.attributes('disabled')).toBe('true');
+    expect(wrapper.classes('is-disabled')).toBeTruthy();
   });
   test('check props.disabled not passed', async () => {
-    expect(wrapper.attributes('disabled')).toBe('false');
+    expect(wrapper.classes('is-disabled')).not.toBeTruthy();
   });
 
   test('check emits click after clicking on component', () => {
     wrapper.trigger('click');
-
     expect(wrapper.emitted('click')).toBeTruthy();
     expect(wrapper.emitted('click')?.length).toBe(1);
   });
@@ -80,10 +88,12 @@ describe('BaseButton.vue', () => {
   test('has some content inside tags (check of slot)', () => {
     const buttonText = 'check default slot';
     const slots = {
-      default: buttonText
+      default: buttonText,
     };
-    const wrapper = shallowMount(BaseButton, {
-      slots
+    wrapper.unmount();
+    wrapper = mount(BaseButton, {
+      slots,
+      global,
     });
 
     expect(wrapper.text()).toBe(buttonText);
