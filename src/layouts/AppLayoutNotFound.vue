@@ -1,5 +1,5 @@
 <template>
-  <div class="app-layout-fot-found">
+  <div class="app-layout-not-found">
     <slot />
   </div>
 </template>
