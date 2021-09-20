@@ -22,11 +22,7 @@ async function get (url: string, params = {}): Promise<string> {
 export default { get }
 // }
 
-// Add a response interceptor
 axios.interceptors.response.use((response: AxiosResponse) => {
-  // Do something with response data
-  // console.log(response.data);
-
   return response;
 }, error => {
   const errorCode = error.response.status;
@@ -34,16 +30,13 @@ axios.interceptors.response.use((response: AxiosResponse) => {
 
   if (errorCode) {
     switch (+errorCode) {
-      // ошибка аутентификации
       case 400: {
         console.log('response error:', errorData, errorCode);
         break;
       }
       default:
         console.log('response error:', errorData, errorCode);
-        // store.commit('WRITE_DEBUG_LOG', { type: 'http.interceptor.taskerror', info: JSON.stringify(err) });
     }
   }
-  // Do something with response error
   return Promise.reject(error);
 });
