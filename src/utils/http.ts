@@ -7,20 +7,21 @@ export const axios: AxiosInstance = Axios.create({
 });
 
 const BASE_URL = process.env.VUE_APP_API_BASE_URL;
+export default class ApiHttp {
+  headers: {[key: string]: string};
 
-// export default class ApiHttp {
-const headers = {} as [string];
+  constructor (headers: {[key: string]: string}) {
+    this.headers = headers;
+  }
 
-async function get (url: string, params = {}): Promise<string> {
-  const config = Object.assign({}, { headers: headers }, { params }) as AxiosRequestConfig;
-  const targetUrl = BASE_URL + url;
-  return axios.get(targetUrl, config).then(response => {
-    return response.data;
-  });
+  async get (url: string, params = {}): Promise<string> {
+    const config = Object.assign({}, { headers: this.headers }, { params }) as AxiosRequestConfig;
+    const targetUrl = BASE_URL + url;
+    return axios.get(targetUrl, config).then(response => {
+      return response.data;
+    });
+  }
 }
-
-export default { get }
-// }
 
 axios.interceptors.response.use((response: AxiosResponse) => {
   return response;

@@ -7,7 +7,7 @@ import ru from 'element-plus/es/locale/lang/ru';
 import { errorHandler, warnHandler } from './utils/errorHandling';
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-import http from './utils/http';
+import http from './utils/httpModule';
 
 const app = createApp(App);
 
@@ -17,7 +17,7 @@ app.use(store)
     locale: ru,
   })
   .use(VueAxios, axios)
-  .provide('http', http)
+  .use(http)
   .mount('#app');
 
 app.config.errorHandler = errorHandler;

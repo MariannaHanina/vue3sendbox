@@ -78,8 +78,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, reactive } from 'vue';
+import { defineComponent, ref, reactive, onMounted, inject } from 'vue';
 import { ElForm } from 'element-plus';
+import ApiHttp from '@/utils/http'
 
 export default defineComponent({
   props: {},
@@ -133,6 +134,14 @@ export default defineComponent({
         })
       }
     }
+
+    const http: ApiHttp = inject('http', new ApiHttp({})) // inject apiClient
+
+    onMounted(async () => {
+      const result = await http.get('/users');
+      console.log(result);
+    });
+
     return {
       firstName,
       text,
