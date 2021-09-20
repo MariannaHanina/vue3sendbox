@@ -8,11 +8,6 @@ const routes: Array<RouteRecordRaw> = [
     component: Home,
   },
   {
-    path: '/test',
-    name: 'Test',
-    component: () => import(/* webpackChunkName: "about" */ '../pages/Test.vue'),
-  },
-  {
     path: '/about',
     name: 'About',
     // route level code-splitting
@@ -21,8 +16,16 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import(/* webpackChunkName: "about" */ '../pages/About.vue'),
   },
   {
+    path: '/test',
+    name: 'Test',
+    component: () => import(/* webpackChunkName: "test" */ '../pages/Test.vue'),
+  },
+  {
     path: '/:pathMatch(.*)',
     name: 'NotFound',
+    meta: {
+      layout: 'AppLayoutNotFound',
+    },
     component: () => import(/* webpackChunkName: "error" */ '../pages/NotFound.vue'),
   },
 ]
