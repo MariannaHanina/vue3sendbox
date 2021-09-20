@@ -14,12 +14,19 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref, onMounted, inject } from 'vue';
 
 export default defineComponent({
   name: 'App',
   setup () {
     const activeIndex = ref('/');
+
+    const http: any = inject('http') // inject apiClient
+
+    onMounted(async () => {
+      const result = await http.get('//users');
+      console.log(result);
+    });
 
     return {
       activeIndex,
