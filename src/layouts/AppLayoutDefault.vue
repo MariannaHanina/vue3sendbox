@@ -1,17 +1,19 @@
 <template>
-  <el-menu mode="horizontal" :router="true" :default-active="activeIndex">
-    <el-menu-item index="/">
-      Home
-    </el-menu-item>
-    <el-menu-item index="/about">
-      About
-    </el-menu-item>
-    <el-menu-item index="/test">
-      Test form
-    </el-menu-item>
-  </el-menu>
-  <div>
-    <slot />
+  <div class="app-layout-default">
+    <el-menu mode="horizontal" :router="true" :default-active="activeIndex">
+      <el-menu-item index="/">
+        Home
+      </el-menu-item>
+      <el-menu-item index="/about">
+        About
+      </el-menu-item>
+      <el-menu-item index="/test">
+        Test form
+      </el-menu-item>
+    </el-menu>
+    <div>
+      <slot />
+    </div>
   </div>
 </template>
 

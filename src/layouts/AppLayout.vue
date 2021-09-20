@@ -16,8 +16,12 @@ export default defineComponent({
     const layout = ref();
 
     const getLayout = async (layoutName: string) => {
-      const layoutComponent = await import(`@/layouts/${layoutName}.vue`);
-      return layoutComponent.default;
+      try {
+        const layoutComponent = await import(`@/layouts/${layoutName}.vue`);
+        return layoutComponent.default;
+      } catch (e) {
+        throw new Error(`There's no layout width name ${layoutName}`);
+      }
     }
 
     watch(
@@ -26,10 +30,6 @@ export default defineComponent({
         try {
           const layoutName = meta.layout as string;
           const layoutComponent = await getLayout(layoutName);
-
-          if (!layoutComponent) {
-            throw new Error(`Layout ${layoutName} doesn't exist!`);
-          }
 
           layout.value = markRaw(layoutComponent);
         } catch (e) {
