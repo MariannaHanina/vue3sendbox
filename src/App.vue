@@ -1,29 +1,17 @@
 <template>
-  <el-menu mode="horizontal" :router="true" :default-active="activeIndex">
-    <el-menu-item index="/">
-      Home
-    </el-menu-item>
-    <el-menu-item index="/about">
-      About
-    </el-menu-item>
-    <el-menu-item index="/test">
-      Test form
-    </el-menu-item>
-  </el-menu>
-  <router-view></router-view>
+  <AppLayout>
+    <router-view></router-view>
+  </AppLayout>
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent } from 'vue';
+import AppLayout from '@/layouts/AppLayout.vue';
 
 export default defineComponent({
   name: 'App',
-  setup () {
-    const activeIndex = ref('/');
-
-    return {
-      activeIndex,
-    }
+  components: {
+    AppLayout,
   },
 });
 
