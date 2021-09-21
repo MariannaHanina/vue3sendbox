@@ -28,6 +28,11 @@ const routes: Array<RouteRecordRaw> = [
     },
     component: () => import(/* webpackChunkName: "error" */ '../pages/NotFound.vue'),
   },
+  {
+    path: '/users',
+    name: 'Users',
+    component: () => import(/* webpackChunkName: "users" */ '../pages/Users.vue'),
+  },
 ]
 
 const router = createRouter({

@@ -10,6 +10,9 @@
       <el-menu-item index="/test">
         Test form
       </el-menu-item>
+      <el-menu-item index="/users">
+        Users
+      </el-menu-item>
     </el-menu>
     <div>
       <slot />
