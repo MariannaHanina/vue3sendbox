@@ -9,6 +9,7 @@ import VueAxios from 'vue-axios'
 import element from './plugins/elementPlugin';
 import errorHandling from './plugins/errorHandlingPlugin';
 import http from './plugins/httpPlugin';
+import ws from './plugins/websocketPlugin';
 
 import './styles/tailwind.css';
 
@@ -22,4 +23,5 @@ app.use(store)
   .use(errorHandling)
   .use(VueAxios, axios)
   .use(http)
+  .use(ws)
   .mount('#app');
