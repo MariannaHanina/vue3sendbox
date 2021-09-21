@@ -10,6 +10,8 @@ import element from './plugins/elementPlugin';
 import errorHandling from './plugins/errorHandlingPlugin';
 import http from './plugins/httpPlugin';
 
+import './styles/tailwind.css';
+
 const app = createApp(App);
 
 app.use(store)

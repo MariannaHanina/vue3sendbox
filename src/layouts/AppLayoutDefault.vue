@@ -1,6 +1,6 @@
 <template>
   <div class="app-layout-default">
-    <el-menu mode="horizontal" :router="true" :default-active="activeIndex">
+    <el-menu mode="horizontal" :router="true" :default-active="activeIndex" class="bg-blue-50">
       <el-menu-item index="/">
         Home
       </el-menu-item>
