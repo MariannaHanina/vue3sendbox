@@ -4,7 +4,10 @@ import router from './router';
 import store from './store';
 import element from './plugins/element';
 import ru from 'element-plus/es/locale/lang/ru';
-import { errorHandler, warnHandler } from './errorHandling';
+import { errorHandler, warnHandler } from './utils/errorHandling';
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+import http from './plugins/httpModule';
 
 const app = createApp(App);
 
@@ -13,6 +16,8 @@ app.use(store)
   .use(element, {
     locale: ru,
   })
+  .use(VueAxios, axios)
+  .use(http)
   .mount('#app');
 
 app.config.errorHandler = errorHandler;
