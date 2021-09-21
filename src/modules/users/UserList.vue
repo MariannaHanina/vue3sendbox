@@ -1,8 +1,8 @@
 <template>
   <article>
-    <h2>User List</h2>
-    <ul>
-      <li v-for="user in userList" :key="user.id">
+    <Heading2>User List</Heading2>
+    <ul class="my-5">
+      <li v-for="user in users" :key="user.id">
         {{ user.name }} {{ user.surname }}
       </li>
     </ul>
@@ -14,14 +14,19 @@ import { computed, defineComponent } from 'vue';
 import { useStore } from 'vuex';
 import './store';
 
+import Heading2 from '@/components/Heading2.vue';
+
 export default defineComponent({
   name: 'UserList',
+  components: {
+    Heading2,
+  },
   setup () {
     const store = useStore();
-    const userList = computed(() => store.state.users.users);
+    const users = computed(() => store.state.users.users);
 
     return {
-      userList,
+      users,
     }
   },
 });

@@ -14,7 +14,7 @@
         Users
       </el-menu-item>
     </el-menu>
-    <div>
+    <div class="py-16">
       <slot />
     </div>
   </div>
