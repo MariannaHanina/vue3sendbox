@@ -7,7 +7,7 @@ import ru from 'element-plus/es/locale/lang/ru';
 import { errorHandler, warnHandler } from './utils/errorHandling';
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-import http from './utils/httpModule';
+import http from './plugins/httpModule';
 
 const app = createApp(App);
 

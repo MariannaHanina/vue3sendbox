@@ -16,8 +16,7 @@ export default class ApiHttp {
 
   async get (url: string, params = {}): Promise<string> {
     const config = Object.assign({}, { headers: this.headers }, { params }) as AxiosRequestConfig;
-    const targetUrl = BASE_URL + url;
-    return axios.get(targetUrl, config).then(response => {
+    return axios.get(`${BASE_URL}${url}`, config).then(response => {
       return response.data;
     });
   }
