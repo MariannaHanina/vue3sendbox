@@ -7,4 +7,9 @@ module.exports = {
   transformIgnorePatterns: [
     'node_modules/(?!element-plus/.*)',
   ],
+  testMatch: [
+    '**/tests/unit/**/*.spec.[jt]s?(x)',
+    '**/__tests__/*.[jt]s?(x)',
+    '**/src/**/*.spec.[jt]s?(x)',
+  ],
 }

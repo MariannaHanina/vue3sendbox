@@ -1,7 +1,14 @@
 <template>
   <article>
     <Heading2>User List</Heading2>
-    <ul class="my-5">
+    <el-alert
+      class="w-40 mx-auto my-5"
+      title="No users"
+      type="info"
+      v-if="!users.length"
+      :closable="false"
+    />
+    <ul class="my-5" v-else>
       <li v-for="user in users" :key="user.id">
         {{ user.name }} {{ user.surname }}
       </li>
@@ -10,10 +17,8 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from 'vue';
-import { useStore } from 'vuex';
-import './store';
-
+import { defineComponent, PropType } from 'vue';
+import { TUser } from './types';
 import Heading2 from '@/components/Heading2.vue';
 
 export default defineComponent({
@@ -21,13 +26,11 @@ export default defineComponent({
   components: {
     Heading2,
   },
-  setup () {
-    const store = useStore();
-    const users = computed(() => store.state.users.users);
-
-    return {
-      users,
-    }
+  props: {
+    users: {
+      type: Array as PropType<TUser[]>,
+      required: true,
+    },
   },
 });
 </script>

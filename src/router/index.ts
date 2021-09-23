@@ -26,18 +26,13 @@ const routes: Array<RouteRecordRaw> = [
     meta: {
       layout: 'AppLayoutNotFound',
     },
-    component: () => import(/* webpackChunkName: "error" */ '../pages/NotFound.vue'),
+    component: () => import(/* webpackChunkName: "error" */ '../pages/notFound/NotFound.vue'),
   },
-  {
-    path: '/users',
-    name: 'Users',
-    component: () => import(/* webpackChunkName: "users" */ '../pages/Users.vue'),
-  },
-]
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
-})
+});
 
-export default router
+export default router;
