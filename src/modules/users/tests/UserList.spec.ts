@@ -1,8 +1,9 @@
 import { ComponentPublicInstance } from '@vue/runtime-core';
 import { mount, VueWrapper } from '@vue/test-utils';
-import UserList from '@/modules/users/UserList.vue';
+import UserList from '@/modules/users/components/UserList.vue';
 import { users } from './mockData';
 import { ElAlert } from 'element-plus';
+import DsnHeading2 from '@/components/DsnHeading2.vue';
 
 describe('UserList.vue', () => {
   let wrapper: VueWrapper<ComponentPublicInstance>;
@@ -15,6 +16,7 @@ describe('UserList.vue', () => {
       global: {
         components: {
           ElAlert,
+          DsnHeading2,
         },
       },
     });

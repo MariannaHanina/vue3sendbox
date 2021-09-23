@@ -1,9 +1,9 @@
 import { mount, VueWrapper } from '@vue/test-utils';
-import BaseButton from '@/components/BaseButton.vue';
+import DsnButton from '@/components/DsnButton/DsnButton.vue';
 import { ElButton } from 'element-plus';
 import { ComponentPublicInstance } from 'vue';
 
-describe('BaseButton.vue', () => {
+describe('DsnButton.vue', () => {
   let wrapper: VueWrapper<ComponentPublicInstance>;
   const global = {
     components: {
@@ -12,7 +12,7 @@ describe('BaseButton.vue', () => {
   };
 
   beforeEach(() => {
-    wrapper = mount(BaseButton, {
+    wrapper = mount(DsnButton, {
       global,
     })
   });
@@ -91,7 +91,7 @@ describe('BaseButton.vue', () => {
       default: buttonText,
     };
     wrapper.unmount();
-    wrapper = mount(BaseButton, {
+    wrapper = mount(DsnButton, {
       slots,
       global,
     });

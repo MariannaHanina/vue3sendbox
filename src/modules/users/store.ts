@@ -2,7 +2,6 @@ import { Module, MutationTree, ActionTree } from 'vuex';
 import { TRootState } from '@/store/types';
 import { TUsersState, TUsersMutations, TUsersActions } from './types';
 import usersApi from './api';
-import store from '@/store/index';
 
 export const state: TUsersState = {
   users: [],

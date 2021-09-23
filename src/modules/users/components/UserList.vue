@@ -1,6 +1,6 @@
 <template>
   <article>
-    <Heading2>User List</Heading2>
+    <dsn-heading2>User List</dsn-heading2>
     <el-alert
       class="w-40 mx-auto my-5"
       title="No users"
@@ -18,14 +18,10 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
-import { TUser } from './types';
-import Heading2 from '@/components/Heading2.vue';
+import { TUser } from '@/modules/users/types';
 
 export default defineComponent({
   name: 'UserList',
-  components: {
-    Heading2,
-  },
   props: {
     users: {
       type: Array as PropType<TUser[]>,
