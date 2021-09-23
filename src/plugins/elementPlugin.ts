@@ -1,5 +1,6 @@
 import { App } from 'vue';
 import {
+  ElAlert,
   ElButton,
   ElCol,
   ElForm,
@@ -28,6 +29,7 @@ export default {
     // Globaly added components from library.
     // Add here for using in app.
     app
+      .use(ElAlert)
       .use(ElButton)
       .use(ElCol)
       .use(ElForm)

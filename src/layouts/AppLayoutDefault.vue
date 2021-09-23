@@ -10,8 +10,11 @@
       <el-menu-item index="/test">
         Test form
       </el-menu-item>
+      <el-menu-item index="/users">
+        Users
+      </el-menu-item>
     </el-menu>
-    <div>
+    <div class="py-16">
       <slot />
     </div>
   </div>
