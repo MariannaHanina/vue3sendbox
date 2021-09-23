@@ -11,11 +11,7 @@ export default class WSClient {
     this._wsp = new WebSocketAsPromised(url);
   }
 
-  public get url () : string {
-    return this._url;
-  }
-
-  public async connect (): Promise<Event> {
+  public connect (): Promise<Event> {
     return this._wsp.open().catch(() => {
       throw new Error('Failed to connect to ' + this._url);
     });
@@ -27,6 +23,6 @@ export default class WSClient {
 
   // Просто посылает чтото на сервер, в дальнейшем похоже будет sendRequest использоваться
   public send (data: string): void {
-    return this._wsp.send(data)
+    this._wsp.send(data)
   }
 }
