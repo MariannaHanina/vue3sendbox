@@ -70,8 +70,13 @@
       <el-input v-model="form.type"></el-input>
     </el-form-item>
     <el-form-item>
-      <el-button type="primary" @click="submitForm('form')"
+      <el-button type="primary" @click="submitForm()"
         >Submit</el-button
+      >
+    </el-form-item>
+    <el-form-item>
+      <el-button type="primary" @click="submitForm2()"
+        >Check WS</el-button
       >
     </el-form-item>
   </el-form>
@@ -81,10 +86,20 @@
 import { defineComponent, ref, reactive, onMounted, inject } from 'vue';
 import { ElForm } from 'element-plus';
 import ApiHttp from '@/utils/http'
+import WSClient from '@/utils/websocket'
 
 export default defineComponent({
   props: {},
   setup () {
+    const wsp: WSClient = inject('wsp', new WSClient()) // inject WSClient
+
+    const submitForm2 = async () => {
+      const res = await wsp.connect();
+      const res2 = wsp.send('test');
+      console.log(res)
+      console.log(res2)
+    }
+
     const firstName = ref('');
     const secondName = ref('');
     const text = ref('');
@@ -152,6 +167,7 @@ export default defineComponent({
       rules,
       formName,
       submitForm,
+      submitForm2,
     }
   },
 });
