@@ -1,5 +1,8 @@
 <template>
-  <el-page-header @back="goBack" content="404. Page Not Found"></el-page-header>
+  <el-page-header
+    content="404. Page Not Found"
+    @back="goBack"
+  />
 </template>
 
 <script lang="ts">

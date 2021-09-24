@@ -3,30 +3,52 @@
     <h1>This is an test page</h1>
     <el-row>
       <el-col :span="12">
-        <el-button @click="$router.go(-1)">Back</el-button>
+        <el-button @click="$router.go(-1)">
+          Back
+        </el-button>
       </el-col>
     </el-row>
     <el-row>
-      <el-col :span="12">12 колонок</el-col>
-      <el-col :span="12">12 колонок</el-col>
+      <el-col :span="12">
+        12 колонок
+      </el-col>
+      <el-col :span="12">
+        12 колонок
+      </el-col>
     </el-row>
     <el-row>
       <el-col :span="4">
-        <el-input v-model="firstName" placeholder="Имя"></el-input>
+        <el-input
+          v-model="firstName"
+          placeholder="Имя"
+        />
       </el-col>
       <el-col :span="4">
-        <el-input v-model="secondName" placeholder="Фамилия"></el-input>
+        <el-input
+          v-model="secondName"
+          placeholder="Фамилия"
+        />
       </el-col>
-      <el-col :span="12">Без отступов</el-col>
+      <el-col :span="12">
+        Без отступов
+      </el-col>
     </el-row>
     <el-row :gutter="20">
       <el-col :span="4">
-        <el-input v-model="firstName" placeholder="Имя"></el-input>
+        <el-input
+          v-model="firstName"
+          placeholder="Имя"
+        />
       </el-col>
       <el-col :span="4">
-        <el-input v-model="secondName" placeholder="Фамилия"></el-input>
+        <el-input
+          v-model="secondName"
+          placeholder="Фамилия"
+        />
       </el-col>
-      <el-col :span="12">С отступами</el-col>
+      <el-col :span="12">
+        С отступами
+      </el-col>
     </el-row>
     <el-row :gutter="20">
       <el-col :span="4">
@@ -35,7 +57,7 @@
           type="number"
           label="number"
           placeholder="number"
-        ></el-input>
+        />
       </el-col>
       <el-col :span="4">
         <el-input
@@ -43,41 +65,62 @@
           type="text"
           label="text"
           placeholder="text"
-        ></el-input>
+        />
       </el-col>
       <el-col :span="4">
-        <el-input v-model="secondName" label="Фамилия"></el-input>
+        <el-input
+          v-model="secondName"
+          label="Фамилия"
+        />
       </el-col>
       <el-col :span="4">
-        <el-input v-model="secondName" label="Фамилия"></el-input>
+        <el-input
+          v-model="secondName"
+          label="Фамилия"
+        />
       </el-col>
     </el-row>
   </div>
   <el-form
+    ref="formName"
     :label-position="labelPosition"
     label-width="150px"
     :model="form"
-    ref="formName"
     :rules="rules"
   >
-    <el-form-item label="Name" prop="name" >
-      <el-input v-model="form.name" type="text"></el-input>
+    <el-form-item
+      label="Name"
+      prop="name"
+    >
+      <el-input
+        v-model="form.name"
+        type="text"
+      />
     </el-form-item>
-    <el-form-item label="City"  prop="region">
-      <el-input v-model="form.region"></el-input>
+    <el-form-item
+      label="City"
+      prop="region"
+    >
+      <el-input v-model="form.region" />
     </el-form-item>
-    <el-form-item label="Smth else" >
-      <el-input v-model="form.type"></el-input>
+    <el-form-item label="Smth else">
+      <el-input v-model="form.type" />
     </el-form-item>
     <el-form-item>
-      <el-button type="primary" @click="submitForm()"
-        >Submit</el-button
+      <el-button
+        type="primary"
+        @click="submitForm()"
       >
+        Submit
+      </el-button>
     </el-form-item>
     <el-form-item>
-      <el-button type="primary" @click="submitForm2()"
-        >Check WS</el-button
+      <el-button
+        type="primary"
+        @click="submitForm2()"
       >
+        Check WS
+      </el-button>
     </el-form-item>
   </el-form>
 </template>
