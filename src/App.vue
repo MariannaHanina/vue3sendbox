@@ -1,17 +1,17 @@
 <template>
-  <AppLayout>
+  <dsn-layout-manager>
     <router-view />
-  </AppLayout>
+  </dsn-layout-manager>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import AppLayout from '@/layouts/AppLayout.vue';
+import DsnLayoutManager from '@/layouts/DsnLayoutManager/DsnLayoutManager.vue';
 
 export default defineComponent({
   name: 'App',
   components: {
-    AppLayout,
+    DsnLayoutManager,
   },
 });
 

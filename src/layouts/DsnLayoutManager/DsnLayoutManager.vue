@@ -7,10 +7,10 @@
 <script lang="ts">
 import { defineComponent, markRaw, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
-import AppLayoutDefault from '@/layouts/AppLayoutDefault.vue';
+import DsnLayoutDefault from '@/layouts/DsnLayoutDefault/DsnLayoutDefault.vue';
 
 export default defineComponent({
-  name: 'AppLayout',
+  name: 'DsnLayoutManager',
   setup () {
     const route = useRoute();
     const layout = ref();
@@ -33,7 +33,7 @@ export default defineComponent({
 
           layout.value = markRaw(layoutComponent);
         } catch (e) {
-          layout.value = markRaw(AppLayoutDefault);
+          layout.value = markRaw(DsnLayoutDefault);
         }
       },
       {
