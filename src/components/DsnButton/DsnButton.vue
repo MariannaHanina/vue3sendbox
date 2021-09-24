@@ -1,5 +1,13 @@
-<template >
-  <el-button :type="type" :size="size" :plain="plain" :round="round" :circle="circle" :loading="loading" :disabled="disabled">
+<template>
+  <el-button
+    :type="type"
+    :size="size"
+    :plain="plain"
+    :round="round"
+    :circle="circle"
+    :loading="loading"
+    :disabled="disabled"
+  >
     <slot />
   </el-button>
 </template>
