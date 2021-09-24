@@ -1,7 +1,7 @@
 import { ComponentPublicInstance } from 'vue';
 import { VueWrapper, mount } from '@vue/test-utils';
 import { ElPageHeader } from 'element-plus';
-import NotFoundPage from '@/pages/NotFound.vue';
+import NotFoundPage from '@/pages/notFound/NotFound.vue';
 
 const mockRouterGo = jest.fn();
 

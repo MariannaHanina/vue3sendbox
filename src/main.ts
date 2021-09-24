@@ -11,6 +11,10 @@ import errorHandling from './plugins/errorHandlingPlugin';
 import http from './plugins/httpPlugin';
 import ws from './plugins/websocketPlugin';
 
+import registerComponents from './registerComponents';
+
+import '@/modules/users';
+
 import './styles/tailwind.css';
 
 const app = createApp(App);
@@ -25,3 +29,5 @@ app.use(store)
   .use(http)
   .use(ws)
   .mount('#app');
+
+registerComponents(app);
