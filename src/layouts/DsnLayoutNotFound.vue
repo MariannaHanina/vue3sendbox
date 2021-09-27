@@ -1,5 +1,5 @@
 <template>
-  <div class="app-layout-not-found">
+  <div class="dsn-layout-not-found">
     <slot />
   </div>
 </template>

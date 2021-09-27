@@ -6,6 +6,9 @@ const routes: Array<RouteRecordRaw> = [
     path: '/',
     name: 'Home',
     component: Home,
+    meta: {
+      inNav: true,
+    },
   },
   {
     path: '/about',
@@ -14,17 +17,23 @@ const routes: Array<RouteRecordRaw> = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../pages/About.vue'),
+    meta: {
+      inNav: true,
+    },
   },
   {
     path: '/test',
     name: 'Test',
     component: () => import(/* webpackChunkName: "test" */ '../pages/Test.vue'),
+    meta: {
+      inNav: true,
+    },
   },
   {
     path: '/:pathMatch(.*)',
     name: 'NotFound',
     meta: {
-      layout: 'AppLayoutNotFound',
+      layout: 'DsnLayoutNotFound',
     },
     component: () => import(/* webpackChunkName: "error" */ '../pages/notFound/NotFound.vue'),
   },
