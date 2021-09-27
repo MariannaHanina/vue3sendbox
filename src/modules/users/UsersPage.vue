@@ -1,6 +1,9 @@
 <template>
   <dsn-heading1>Users</dsn-heading1>
-  <user-list class="my-10" :users="users" />
+  <user-list
+    class="my-10"
+    :users="users"
+  />
 </template>
 
 <script lang="ts">

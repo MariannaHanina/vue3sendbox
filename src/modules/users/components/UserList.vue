@@ -2,14 +2,20 @@
   <article>
     <dsn-heading2>User List</dsn-heading2>
     <el-alert
+      v-if="!users.length"
       class="w-40 mx-auto my-5"
       title="No users"
       type="info"
-      v-if="!users.length"
       :closable="false"
     />
-    <ul class="my-5" v-else>
-      <li v-for="user in users" :key="user.id">
+    <ul
+      v-else
+      class="my-5"
+    >
+      <li
+        v-for="user in users"
+        :key="user.id"
+      >
         {{ user.name }} {{ user.surname }}
       </li>
     </ul>

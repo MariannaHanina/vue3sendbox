@@ -12,8 +12,8 @@ import DsnNav from '@/components/DsnNav.vue';
 
 export default function registerComponents (app: App): void {
   app
-    .component('dsn-button', DsnButton)
-    .component('dsn-heading1', DsnHeading1)
-    .component('dsn-heading2', DsnHeading2)
-    .component('dsn-nav', DsnNav);
+    .component('DsnButton', DsnButton)
+    .component('DsnHeading1', DsnHeading1)
+    .component('DsnHeading2', DsnHeading2)
+    .component('DsnNav', DsnNav);
 }
