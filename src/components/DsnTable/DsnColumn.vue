@@ -13,9 +13,6 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
   props: {
-    dense: {
-      type: Boolean, default: false,
-    },
     label: { type: String, default: '' },
   },
 });
