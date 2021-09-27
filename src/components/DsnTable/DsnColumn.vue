@@ -18,14 +18,5 @@ export default defineComponent({
     },
     label: { type: String, default: '' },
   },
-  setup (props) {
-    const cellClass = () => {
-      return props.dense ? 'td-dense' : '';
-    }
-
-    return {
-      cellClass,
-    }
-  },
 });
 </script>
