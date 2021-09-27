@@ -5,7 +5,6 @@
     border
     :cell-class-name="cellClass"
   >
-    {{ dense }}
     <slot />
   </el-table>
 </template>
