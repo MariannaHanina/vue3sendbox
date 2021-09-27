@@ -10,6 +10,9 @@ import {
   ElMenuItem,
   ElPageHeader,
   ElRow,
+  ElSwitch,
+  ElTable,
+  ElTableColumn,
 } from 'element-plus';
 
 export type ComponentSize = 'large' | 'medium' | 'small' | 'mini';
@@ -39,5 +42,8 @@ export default {
       .use(ElMenu)
       .use(ElMenuItem)
       .use(ElRow)
+      .use(ElSwitch)
+      .use(ElTable)
+      .use(ElTableColumn)
   },
 }
