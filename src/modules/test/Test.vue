@@ -8,6 +8,17 @@
       inactive-text="Форма"
     />
 
+    <dsn-column
+      prop="id"
+      label="ID"
+      width="200"
+      sortable
+    >
+      <template #header>
+        Тест слота заголовка
+      </template>
+    </dsn-column>
+
     <template v-if="switcher">
       <dsn-table
         :data="data"
