@@ -4,7 +4,7 @@ import DsnTable from '@/components/DsnTable/DsnTable.vue';
 import { ElTableColumn, ElTable } from 'element-plus';
 import { ComponentPublicInstance } from 'vue';
 
-describe('DsnButton.vue', () => {
+describe('DsnTable.vue', () => {
   let wrapper: VueWrapper<ComponentPublicInstance>;
   const global = {
     components: {

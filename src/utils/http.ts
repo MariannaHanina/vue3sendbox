@@ -16,8 +16,8 @@ export default class ApiHttp {
 
   async get<T> (url: string, params = {}): Promise<T[]> {
     const config = Object.assign({}, { headers: this.headers }, { params }) as AxiosRequestConfig;
-    const response = await axios.get<T[]>(`${BASE_URL}${url}`, config);
-    return response.data;
+    const { data } = await axios.get<T[]>(`${BASE_URL}${url}`, config);
+    return data;
   }
 }
 
