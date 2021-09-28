@@ -20,7 +20,7 @@ export default defineComponent({
   },
   setup (props) {
     const cellClass = () => {
-      return props.dense ? 'td-dense' : '';
+      return props.dense ? 'no_padding' : '';
     }
 
     return {
@@ -32,7 +32,7 @@ export default defineComponent({
 
 <style >
 
-td.td-dense {
-  padding: 0 !important;
+td.no_padding {
+  @apply p-0;
 }
 </style>

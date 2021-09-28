@@ -22,6 +22,7 @@
           <template #header>
             Тест слота заголовка
           </template>
+          fdfdf
         </dsn-column>
         <dsn-column
           prop="name"
@@ -43,86 +44,6 @@
       </dsn-table>
     </template>
     <template v-else>
-      <el-row>
-        <el-col :span="12">
-          <el-button @click="$router.go(-1)">
-            Back
-          </el-button>
-        </el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="12">
-          12 колонок
-        </el-col>
-        <el-col :span="12">
-          12 колонок
-        </el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="4">
-          <el-input
-            v-model="firstName"
-            placeholder="Имя"
-          />
-        </el-col>
-        <el-col :span="4">
-          <el-input
-            v-model="secondName"
-            placeholder="Фамилия"
-          />
-        </el-col>
-        <el-col :span="12">
-          Без отступов
-        </el-col>
-      </el-row>
-      <el-row :gutter="20">
-        <el-col :span="4">
-          <el-input
-            v-model="firstName"
-            placeholder="Имя"
-          />
-        </el-col>
-        <el-col :span="4">
-          <el-input
-            v-model="secondName"
-            placeholder="Фамилия"
-          />
-        </el-col>
-        <el-col :span="12">
-          С отступами
-        </el-col>
-      </el-row>
-      <el-row :gutter="20">
-        <el-col :span="4">
-          <el-input
-            v-model="number"
-            type="number"
-            label="number"
-            placeholder="number"
-          />
-        </el-col>
-        <el-col :span="4">
-          <el-input
-            v-model="text"
-            type="text"
-            label="text"
-            placeholder="text"
-          />
-        </el-col>
-        <el-col :span="4">
-          <el-input
-            v-model="secondName"
-            label="Фамилия"
-          />
-        </el-col>
-        <el-col :span="4">
-          <el-input
-            v-model="secondName"
-            label="Фамилия"
-          />
-        </el-col>
-      </el-row>
-
       <el-form
         ref="formName"
         :label-position="labelPosition"
