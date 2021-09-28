@@ -14,11 +14,10 @@ export default class ApiHttp {
     this.headers = headers;
   }
 
-  async get (url: string, params = {}): Promise<string> {
+  async get<T> (url: string, params = {}): Promise<T[]> {
     const config = Object.assign({}, { headers: this.headers }, { params }) as AxiosRequestConfig;
-    return axios.get(`${BASE_URL}${url}`, config).then(response => {
-      return response.data;
-    });
+    const { data } = await axios.get<T[]>(`${BASE_URL}${url}`, config);
+    return data;
   }
 }
 

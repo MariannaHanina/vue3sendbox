@@ -22,14 +22,6 @@ const routes: Array<RouteRecordRaw> = [
     },
   },
   {
-    path: '/test',
-    name: 'Test',
-    component: () => import(/* webpackChunkName: "test" */ '../pages/Test.vue'),
-    meta: {
-      inNav: true,
-    },
-  },
-  {
     path: '/:pathMatch(.*)',
     name: 'NotFound',
     meta: {

@@ -14,6 +14,7 @@ import ws from './plugins/websocketPlugin';
 import registerComponents from './registerComponents';
 
 import '@/modules/users';
+import '@/modules/test';
 
 import './styles/tailwind.css';
 
