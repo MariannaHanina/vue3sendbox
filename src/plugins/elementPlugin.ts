@@ -5,6 +5,7 @@ import {
   ElCol,
   ElForm,
   ElFormItem,
+  ElIcon,
   ElInput,
   ElMenu,
   ElMenuItem,
@@ -14,6 +15,8 @@ import {
   ElTable,
   ElTableColumn,
 } from 'element-plus';
+
+import { Edit } from '@element-plus/icons';
 
 export type ComponentSize = 'large' | 'medium' | 'small' | 'mini';
 
@@ -37,6 +40,7 @@ export default {
       .use(ElCol)
       .use(ElForm)
       .use(ElFormItem)
+      .use(ElIcon)
       .use(ElInput)
       .use(ElPageHeader)
       .use(ElMenu)
@@ -45,5 +49,9 @@ export default {
       .use(ElSwitch)
       .use(ElTable)
       .use(ElTableColumn)
+
+    // иконки
+    app
+      .component('Edit', Edit);
   },
 }
