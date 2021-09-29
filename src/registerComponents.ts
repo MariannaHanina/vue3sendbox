@@ -14,12 +14,16 @@ import DsnNav from '@/components/DsnNav.vue';
 import DsnTable from '@/components/DsnTable/DsnTable.vue';
 import DsnColumn from '@/components/DsnTable/DsnColumn.vue';
 
+// Inputs
+import DsnInput from '@/components/DsnInput.vue';
+
 export default function registerComponents (app: App): void {
   app
     .component('DsnButton', DsnButton)
     .component('DsnColumn', DsnColumn)
     .component('DsnHeading1', DsnHeading1)
     .component('DsnHeading2', DsnHeading2)
+    .component('DsnInput', DsnInput)
     .component('DsnNav', DsnNav)
     .component('DsnTable', DsnTable);
 }
