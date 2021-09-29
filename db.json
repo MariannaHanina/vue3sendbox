@@ -1,0 +1,20 @@
+{
+   "brokers": [
+      {
+         "id": 1,
+         "host": "localhost",
+         "port": "8080",
+         "rack": "",
+         "controller": "yes",
+         "partitions": "87"
+      },
+      {
+         "id": 2,
+         "host": "google",
+         "port": "8080",
+         "rack": "",
+         "controller": "no",
+         "partitions": "60"
+      }
+   ]
+}
