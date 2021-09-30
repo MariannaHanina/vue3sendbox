@@ -1,6 +1,6 @@
 <template>
   <dsn-table
-    :data="data"
+    :data="brokers"
     dense
   >
     <dsn-column
@@ -40,31 +40,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onMounted, inject } from 'vue';
-import ApiHttp from '@/utils/http'
-
-export type TBroker = {
-  id: number,
-  host: string,
-  port: string,
-  rack: string,
-  controller: string,
-  partitions: string,
-}
+import { defineComponent, PropType } from 'vue';
+import { TBroker } from '../types'
 
 export default defineComponent({
-  props: {},
-  setup () {
-    const http: ApiHttp = inject('http', new ApiHttp({})) // inject apiClient
-    const data = ref<TBroker[]>([]);
-    onMounted(async () => {
-      const result: TBroker[] = await http.get<TBroker>('/brokers');
-      data.value = result
-    });
-
-    return {
-      data,
-    }
+  props: {
+    brokers: {
+      type: Array as PropType<TBroker[]>,
+      required: true,
+    },
   },
 });
 </script>

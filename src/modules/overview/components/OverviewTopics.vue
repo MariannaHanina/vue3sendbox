@@ -44,43 +44,28 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, onMounted, inject } from 'vue';
-import ApiHttp from '@/utils/http'
-
-export type TUser = {
-  id: number,
-  email: string,
-  name: string,
-  phone: string,
-  username: string,
-  website: string,
-  address: {
-    street: string,
-    city: string,
-  },
-  company: {
-    name:string,
-  }
-}
+import { TUser } from '../types';
+import { defineComponent, ref, PropType, toRefs, watchEffect } from 'vue';
 
 export default defineComponent({
-  props: {},
-  setup () {
-    const http: ApiHttp = inject('http', new ApiHttp({})) // inject apiClient
-    const data = ref<TUser[]>([]);
+  props: {
+    users: {
+      type: Array as PropType<TUser[]>,
+      required: true,
+    },
+    test: { type: Number, default: 0 },
+  },
+  setup (props) {
     const dataTable = ref<TUser[]>([]);
-    onMounted(async () => {
-      const result: TUser[] = await http.get<TUser>('/users');
-      data.value = result
-
-      clearFilter();
-    });
-
-    const switcher = ref(true);
     const searchTopicName = ref('');
 
+    const { users } = toRefs(props)
+    watchEffect(() => {
+      dataTable.value = users.value;
+    })
+
     function clearFilter () {
-      dataTable.value = data.value
+      dataTable.value = users.value;
     }
     function filterHandler () {
       if (searchTopicName.value === '') {
@@ -88,14 +73,14 @@ export default defineComponent({
         return;
       }
 
-      dataTable.value = data.value.filter((user: TUser) => {
+      dataTable.value = props.users.filter((user: TUser) => {
         return user.name.toLowerCase().indexOf(searchTopicName.value) >= 0
       })
     }
+    console.log(props);
+    clearFilter();
 
     return {
-      switcher,
-      data,
       dataTable,
       searchTopicName,
       filterHandler,
