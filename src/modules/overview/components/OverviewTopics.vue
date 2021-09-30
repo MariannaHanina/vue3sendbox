@@ -73,7 +73,7 @@ export default defineComponent({
         return;
       }
 
-      dataTable.value = props.users.filter((user: TUser) => {
+      dataTable.value = users.value.filter((user: TUser) => {
         return user.name.toLowerCase().indexOf(searchTopicName.value) >= 0
       })
     }
