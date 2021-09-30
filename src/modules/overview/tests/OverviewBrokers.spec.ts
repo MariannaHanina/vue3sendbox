@@ -4,7 +4,8 @@ import { brokers } from './mockData';
 import OverviewBrokers from '@/modules/overview/components/OverviewBrokers.vue';
 import DsnTable from '@/components/DsnTable/DsnTable.vue';
 import DsnColumn from '@/components/DsnTable/DsnColumn.vue';
-import { ElIcon, ElTable, ElTableColumn } from 'element-plus';
+import DsnInput from '@/components/DsnInput.vue';
+import { ElIcon, ElTable, ElTableColumn, ElCol, ElRow } from 'element-plus';
 import { Edit } from '@element-plus/icons';
 
 describe('OverviewBrokers.vue', () => {
@@ -14,9 +15,12 @@ describe('OverviewBrokers.vue', () => {
     wrapper = mount(OverviewBrokers, {
       global: {
         components: {
-          DsnTable,
           DsnColumn,
+          DsnInput,
+          DsnTable,
+          ElCol,
           ElIcon,
+          ElRow,
           ElTable,
           ElTableColumn,
           Edit,

@@ -77,7 +77,6 @@ export default defineComponent({
         return user.name.toLowerCase().indexOf(searchTopicName.value) >= 0
       })
     }
-    console.log(props);
     clearFilter();
 
     return {

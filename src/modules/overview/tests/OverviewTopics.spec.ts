@@ -4,7 +4,8 @@ import { users } from './mockData';
 import OverviewTopics from '@/modules/overview/components/OverviewTopics.vue';
 import DsnTable from '@/components/DsnTable/DsnTable.vue';
 import DsnColumn from '@/components/DsnTable/DsnColumn.vue';
-import { ElIcon, ElTable, ElTableColumn } from 'element-plus';
+import DsnInput from '@/components/DsnInput.vue';
+import { ElIcon, ElTable, ElTableColumn, ElCol, ElRow, ElInput } from 'element-plus';
 
 describe('OverviewBrokers.vue', () => {
   let wrapper: VueWrapper<ComponentPublicInstance>;
@@ -13,9 +14,13 @@ describe('OverviewBrokers.vue', () => {
     wrapper = mount(OverviewTopics, {
       global: {
         components: {
-          DsnTable,
           DsnColumn,
+          DsnInput,
+          DsnTable,
+          ElCol,
           ElIcon,
+          ElInput,
+          ElRow,
           ElTable,
           ElTableColumn,
         },
@@ -37,6 +42,6 @@ describe('OverviewBrokers.vue', () => {
     expect(wrapper.find('.el-table__row').exists()).toBeTruthy();
   })
   test('rendered input for filter data', () => {
-    expect(wrapper.find('dsn-input').exists()).toBeTruthy();
+    expect(wrapper.find('.el-input__inner').exists()).toBeTruthy();
   });
 });
