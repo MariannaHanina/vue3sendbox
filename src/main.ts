@@ -15,6 +15,7 @@ import registerComponents from './registerComponents';
 
 import '@/modules/users';
 import '@/modules/test';
+import '@/modules/overview';
 
 import './styles/tailwind.css';
 

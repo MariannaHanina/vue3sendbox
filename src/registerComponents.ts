@@ -2,6 +2,7 @@ import { App } from 'vue';
 
 // Form elements
 import DsnButton from '@/components/DsnButton/DsnButton.vue';
+import DsnInput from '@/components/DsnInput.vue';
 
 // Headings
 import DsnHeading1 from '@/components/DsnHeading1.vue';
@@ -20,6 +21,7 @@ export default function registerComponents (app: App): void {
     .component('DsnColumn', DsnColumn)
     .component('DsnHeading1', DsnHeading1)
     .component('DsnHeading2', DsnHeading2)
+    .component('DsnInput', DsnInput)
     .component('DsnNav', DsnNav)
     .component('DsnTable', DsnTable);
 }
