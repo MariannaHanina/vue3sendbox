@@ -1,4 +1,5 @@
-import { RouteRecordRaw } from 'vue-router';
+import { RouteRecordRaw, RouteLocationNormalized, NavigationGuardNext } from 'vue-router';
+import { isAuthenticated } from './utils';
 
 const route: RouteRecordRaw = {
   path: '/login',
@@ -8,5 +9,16 @@ const route: RouteRecordRaw = {
     layout: 'DsnLayoutAuth',
   },
 };
+
+export function routerAuthHook (
+  to: RouteLocationNormalized,
+  from: RouteLocationNormalized,
+  next: NavigationGuardNext,
+): void {
+  if (to.name !== 'Auth' && !isAuthenticated()) {
+    next('/login');
+  }
+  next();
+}
 
 export default route;

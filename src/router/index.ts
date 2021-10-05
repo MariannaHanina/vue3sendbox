@@ -1,4 +1,9 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import {
+  createRouter,
+  createWebHistory,
+  RouteRecordRaw,
+  NavigationGuard,
+} from 'vue-router';
 import Home from '../pages/Home.vue';
 
 const routes: Array<RouteRecordRaw> = [
@@ -42,4 +47,8 @@ export function addRoute (route: RouteRecordRaw): void {
   if (route.name && !router.hasRoute(route.name)) {
     router.addRoute(route);
   }
+}
+
+export function addBeforEachHook (hook: NavigationGuard): void {
+  router.beforeEach(hook);
 }
