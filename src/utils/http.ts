@@ -8,7 +8,7 @@ export default class ApiHttpSingleton {
   axios!: AxiosInstance;
   manager!: AxiosManager;
 
-  constructor (headers: TAxiosHeaders = {}) {
+  private constructor (headers: TAxiosHeaders = {}) {
     this.axios = Axios.create();
     this.manager = new AxiosManager(this.axios, headers);
   }

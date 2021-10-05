@@ -23,7 +23,7 @@ export default defineComponent({
     OverviewBrokers,
   },
   setup () {
-    const http: ApiHttpSingleton = inject('http', new ApiHttpSingleton()) // inject apiClient
+    const http: ApiHttpSingleton = inject('http', ApiHttpSingleton.getInstance()); // inject apiClient
     const brokers = ref<TBroker[]>([]);
     const users = ref<TUser[]>([]);
 
