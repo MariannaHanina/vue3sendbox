@@ -1,5 +1,5 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import Home from '../pages/Home.vue'
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import Home from '../pages/Home.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -37,3 +37,9 @@ const router = createRouter({
 });
 
 export default router;
+
+export function addRoute (route: RouteRecordRaw): void {
+  if (route.name && !router.hasRoute(route.name)) {
+    router.addRoute(route);
+  }
+}
