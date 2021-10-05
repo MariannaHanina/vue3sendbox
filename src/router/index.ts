@@ -1,5 +1,11 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import Home from '../pages/Home.vue'
+import {
+  createRouter,
+  createWebHistory,
+  RouteLocationNormalized,
+  RouteRecordRaw,
+} from 'vue-router';
+import store from '@/store';
+import Home from '../pages/Home.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -36,4 +42,21 @@ const router = createRouter({
   routes,
 });
 
+router.beforeEach((
+  to: RouteLocationNormalized,
+  from: RouteLocationNormalized,
+  next,
+) => {
+  if (to.name !== 'Auth' && !store.getters['auth/isAuthenticated']) {
+    next('/login');
+  }
+  next();
+});
+
 export default router;
+
+export function addRoute (route: RouteRecordRaw): void {
+  if (route.name && !router.hasRoute(route.name)) {
+    router.addRoute(route);
+  }
+}

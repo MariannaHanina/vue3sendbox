@@ -1,6 +1,7 @@
-import { createStore } from 'vuex'
+import { createStore, Module } from 'vuex'
+import { TRootState } from './types';
 
-export default createStore({
+const store = createStore({
   state: {
   },
   mutations: {
@@ -9,4 +10,12 @@ export default createStore({
   },
   modules: {
   },
-})
+});
+
+export default store;
+
+export function registerModule<T> (name: string, module: Module<T, TRootState>): void {
+  if (!store.hasModule(name)) {
+    store.registerModule(name, module);
+  }
+}
