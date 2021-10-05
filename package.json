@@ -19,7 +19,6 @@
     "postcss": "^8.3.6",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2",
     "vue": "^3.0.0",
-    "vue-axios": "^3.3.7",
     "vue-router": "^4.0.0-0",
     "vuex": "^4.0.0-0",
     "websocket-as-promised": "^2.0.1"
