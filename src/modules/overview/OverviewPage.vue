@@ -15,7 +15,7 @@ import OverviewBrokers from './components/OverviewBrokers.vue'
 import OverviewTopics from './components/OverviewTopics.vue'
 
 import { TBroker, TUser } from './types'
-import ApiHttp from '@/utils/http'
+import ApiHttpSingleton from '@/utils/http'
 
 export default defineComponent({
   components: {
@@ -23,15 +23,15 @@ export default defineComponent({
     OverviewBrokers,
   },
   setup () {
-    const http: ApiHttp = inject('http', new ApiHttp({})) // inject apiClient
+    const http: ApiHttpSingleton = inject('http', new ApiHttpSingleton()) // inject apiClient
     const brokers = ref<TBroker[]>([]);
     const users = ref<TUser[]>([]);
 
     onMounted(async () => {
-      const resultUsers: TUser[] = await http.get<TUser>('/users');
+      const resultUsers: TUser[] = await http.get<TUser[]>('/users');
       users.value = resultUsers
 
-      const resultBrokers: TBroker[] = await http.get<TBroker>('/brokers');
+      const resultBrokers: TBroker[] = await http.get<TBroker[]>('/brokers');
       brokers.value = resultBrokers
     });
 
