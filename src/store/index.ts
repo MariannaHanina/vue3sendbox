@@ -1,7 +1,7 @@
 import { createStore, Module } from 'vuex'
 import { TRootState } from './types';
 
-const store = createStore({
+const store = createStore<TRootState>({
   state: {
   },
   mutations: {
