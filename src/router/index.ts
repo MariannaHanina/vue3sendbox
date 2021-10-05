@@ -1,10 +1,4 @@
-import {
-  createRouter,
-  createWebHistory,
-  RouteLocationNormalized,
-  RouteRecordRaw,
-} from 'vue-router';
-import store from '@/store';
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import Home from '../pages/Home.vue';
 
 const routes: Array<RouteRecordRaw> = [
@@ -40,17 +34,6 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
-});
-
-router.beforeEach((
-  to: RouteLocationNormalized,
-  from: RouteLocationNormalized,
-  next,
-) => {
-  if (to.name !== 'Auth' && !store.getters['auth/isAuthenticated']) {
-    next('/login');
-  }
-  next();
 });
 
 export default router;
