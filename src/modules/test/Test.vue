@@ -93,7 +93,7 @@
 <script lang="ts">
 import { defineComponent, ref, reactive, onMounted, inject } from 'vue';
 import { ElForm } from 'element-plus';
-import ApiHttp from '@/utils/http'
+import ApiHttpSingleton from '@/utils/http'
 import WSClient from '@/utils/websocket'
 
 export type TUser = {
@@ -174,10 +174,11 @@ export default defineComponent({
       }
     }
 
-    const http: ApiHttp = inject('http', new ApiHttp({})) // inject apiClient
+    const http: ApiHttpSingleton = inject('http', ApiHttpSingleton.getInstance()); // inject apiClient
     const data = ref<TUser[]>([]);
+
     onMounted(async () => {
-      const result: TUser[] = await http.get<TUser>('/users');
+      const result: TUser[] = await http.get<TUser[]>('/users');
       data.value = result
       console.log(data.value)
     });
