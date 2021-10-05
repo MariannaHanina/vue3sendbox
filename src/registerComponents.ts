@@ -1,6 +1,9 @@
 import { App } from 'vue';
 
 // Form elements
+import DsnForm from '@/components/DsnForm.vue';
+import DsnFormItem from '@/components/DsnFormItem.vue';
+import DsnInput from '@/components/DsnInput.vue';
 import DsnButton from '@/components/DsnButton/DsnButton.vue';
 import DsnInput from '@/components/DsnInput.vue';
 
@@ -17,6 +20,9 @@ import DsnColumn from '@/components/DsnTable/DsnColumn.vue';
 
 export default function registerComponents (app: App): void {
   app
+    .component('DsnForm', DsnForm)
+    .component('DsnFormItem', DsnFormItem)
+    .component('DsnInput', DsnInput)
     .component('DsnButton', DsnButton)
     .component('DsnColumn', DsnColumn)
     .component('DsnHeading1', DsnHeading1)

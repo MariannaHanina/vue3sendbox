@@ -7,7 +7,7 @@
 <script lang="ts">
 import { defineComponent, markRaw, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
-import DsnLayoutDefault from '@/layouts/DsnLayoutDefault/DsnLayoutDefault.vue';
+import { isAuthenticated as isUserAuthenticated } from '@/modules/auth/utils';
 
 export default defineComponent({
   name: 'DsnLayoutManager',
@@ -17,7 +17,7 @@ export default defineComponent({
 
     const getLayout = async (layoutName: string) => {
       try {
-        const layoutComponent = await import(`@/layouts/${layoutName}.vue`);
+        const layoutComponent = await import(`@/layouts/${layoutName}/${layoutName}.vue`);
         return layoutComponent.default;
       } catch (e) {
         throw new Error(`There's no layout width name ${layoutName}`);
@@ -33,7 +33,11 @@ export default defineComponent({
 
           layout.value = markRaw(layoutComponent);
         } catch (e) {
-          layout.value = markRaw(DsnLayoutDefault);
+          const isAuthenticated = isUserAuthenticated();
+          const defaultLayoutName = isAuthenticated ? 'DsnLayoutDefault' : 'DsnLayoutAuth';
+          const defaultLayoutComponent = await getLayout(defaultLayoutName);
+
+          layout.value = markRaw(defaultLayoutComponent);
         }
       },
       {
