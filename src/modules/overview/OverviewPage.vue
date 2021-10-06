@@ -14,9 +14,9 @@ import { defineComponent, onMounted, inject, ref } from 'vue';
 import OverviewBrokers from './components/OverviewBrokers.vue'
 import OverviewTopics from './components/OverviewTopics.vue'
 
-import { TBroker } from './types'
-import { TTopic } from '../topics/types';
-import ApiHttpSingleton from '@/utils/http'
+import { TBroker } from './types';
+import { TTopic } from '@/modules/topics/types';
+import ApiHttpSingleton from '@/utils/http';
 
 export default defineComponent({
   components: {
@@ -29,8 +29,8 @@ export default defineComponent({
     const topics = ref<TTopic[]>([]);
 
     onMounted(async () => {
-      const resultUsers: TTopic[] = await http.get<TTopic[]>('/topics');
-      topics.value = resultUsers
+      const resultTopics: TTopic[] = await http.get<TTopic[]>('/topics');
+      topics.value = resultTopics
 
       const resultBrokers: TBroker[] = await http.get<TBroker[]>('/brokers');
       brokers.value = resultBrokers
