@@ -1,4 +1,5 @@
-import { TBroker, TUser } from '@/modules/overview/types';
+import { TBroker } from '@/modules/overview/types';
+import { TTopic } from '@/modules/topics/types';
 
 export const brokers: TBroker[] = [{
   id: 1,
@@ -17,35 +18,65 @@ export const brokers: TBroker[] = [{
   partitions: '60',
 }];
 
-export const users: TUser[] = [
+export const topics: TTopic[] = [
   {
-    id: 1,
-    name: 'Leanne Graham',
-    username: 'Bret',
-    email: 'Sincere@april.biz',
-    address: {
-      street: 'Kulas Light',
-      city: 'Gwenborough',
-    },
-    phone: '1-770-736-8031 x56442',
-    website: 'hildegard.org',
-    company: {
-      name: 'Romaguera-Crona',
-    },
+    id: '1',
+    name: 'StrikeSettleST',
+    partitions: 14,
+    preferred: 100,
+    replicated: 0,
+    config: false,
+    size: 5,
+    messages: 5,
   },
   {
-    id: 2,
-    name: 'Ervin Howell',
-    username: 'Antonette',
-    email: 'Shanna@melissa.tv',
-    address: {
-      street: 'Victor Plains',
-      city: 'Wisokyburgh',
-    },
-    phone: '010-692-6593 x09125',
-    website: 'anastasia.net',
-    company: {
-      name: 'Deckow-Crist',
-    },
+    id: '2',
+    name: 'StrikeSettleST2',
+    partitions: 14,
+    preferred: 100,
+    replicated: 0,
+    config: false,
+    size: 5,
+    messages: 5,
+  },
+  {
+    id: '3',
+    name: 'StrikeSettleST3',
+    partitions: 14,
+    preferred: 100,
+    replicated: 0,
+    config: false,
+    size: 5,
+    messages: 5,
+  },
+  {
+    id: '13',
+    name: 'StrikeSettleST13',
+    partitions: 14,
+    preferred: 100,
+    replicated: 0,
+    config: false,
+    size: 5,
+    messages: 5,
+  },
+  {
+    id: '4',
+    name: 'StrikeSettleST4',
+    partitions: 14,
+    preferred: 100,
+    replicated: 0,
+    config: false,
+    size: 5,
+    messages: 5,
+  },
+  {
+    id: '5',
+    name: 'StrikeSettleST5',
+    partitions: 14,
+    preferred: 100,
+    replicated: 0,
+    config: false,
+    size: 5,
+    messages: 5,
   },
 ]

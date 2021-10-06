@@ -1,6 +1,6 @@
 import { ComponentPublicInstance } from '@vue/runtime-core';
 import { mount, VueWrapper } from '@vue/test-utils';
-import { users } from './mockData';
+import { topics } from './mockData';
 import OverviewTopics from '@/modules/overview/components/OverviewTopics.vue';
 import DsnTable from '@/components/DsnTable/DsnTable.vue';
 import DsnColumn from '@/components/DsnTable/DsnColumn.vue';
@@ -26,7 +26,7 @@ describe('OverviewBrokers.vue', () => {
         },
       },
       props: {
-        users: [],
+        topics: [],
       },
     });
   });
@@ -37,7 +37,7 @@ describe('OverviewBrokers.vue', () => {
 
   test('pass array with two items into users prop', async () => {
     await wrapper.setProps({
-      users,
+      topics,
     });
     expect(wrapper.find('.el-table__row').exists()).toBeTruthy();
   })
