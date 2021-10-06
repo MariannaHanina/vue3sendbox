@@ -20,7 +20,7 @@ export const actions: ActionTree<TUsersState, TRootState> & TUsersActions = {
   },
 };
 
-export const usersModule: Module<TUsersState, TRootState> = {
+const usersModule: Module<TUsersState, TRootState> = {
   namespaced: true,
   state,
   mutations,
