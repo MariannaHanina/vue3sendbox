@@ -7,7 +7,8 @@
     <el-menu-item
       v-for="item in items"
       :key="item.name"
-      :index="item.path">
+      :index="item.path"
+    >
       {{ item.name }}
     </el-menu-item>
   </el-menu>
@@ -30,9 +31,11 @@ export default defineComponent({
     },
     activeIndex: {
       type: String,
+      default: '/',
     },
     mode: {
       type: String,
+      default: 'vertical',
     },
   },
 });

@@ -5,6 +5,7 @@ import {
   ElCol,
   ElForm,
   ElFormItem,
+  ElHeader,
   ElIcon,
   ElInput,
   ElMenu,
@@ -40,6 +41,7 @@ export default {
       .use(ElCol)
       .use(ElForm)
       .use(ElFormItem)
+      .use(ElHeader)
       .use(ElIcon)
       .use(ElInput)
       .use(ElPageHeader)

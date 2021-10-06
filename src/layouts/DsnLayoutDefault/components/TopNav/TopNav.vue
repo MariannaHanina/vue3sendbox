@@ -3,7 +3,7 @@
     :items="navItems"
     :active-index="activeIndex"
     mode="horizontal"
-    class="bg-blue-50"
+    background-color="transparent"
   />
 </template>
 
