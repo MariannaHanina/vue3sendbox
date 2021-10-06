@@ -4,7 +4,7 @@ const route: RouteRecordRaw =
 {
   path: '/brokers/:id',
   name: 'Broker',
-  component: () => import(/* webpackChunkName: "Overview" */ './BrokerPage.vue'),
+  component: () => import(/* webpackChunkName: "Broker" */ './BrokerPage.vue'),
   props: true,
 };
 

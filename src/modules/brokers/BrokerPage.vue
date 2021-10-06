@@ -27,8 +27,8 @@ export default defineComponent({
     });
 
     onMounted(async () => {
-      const resultBrokers: TBroker = await http.get<TBroker>('/brokers/' + props.id);
-      data.broker = resultBrokers
+      const resultBroker: TBroker = await http.get<TBroker>('/brokers/' + props.id);
+      data.broker = resultBroker
     });
 
     return {
