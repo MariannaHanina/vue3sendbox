@@ -11,7 +11,9 @@ import DsnHeading1 from '@/components/DsnHeading1.vue';
 import DsnHeading2 from '@/components/DsnHeading2.vue';
 
 // Layout elements
-import DsnNav from '@/components/DsnNav.vue';
+import DsnNav from '@/components/DsnLayouts/DsnNav.vue';
+import DsnRow from '@/components/DsnLayouts/DsnRow.vue';
+import DsnCol from '@/components/DsnLayouts/DsnCol.vue';
 
 // Table
 import DsnTable from '@/components/DsnTable/DsnTable.vue';
@@ -19,6 +21,7 @@ import DsnColumn from '@/components/DsnTable/DsnColumn.vue';
 
 export default function registerComponents (app: App): void {
   app
+    .component('DsnCol', DsnCol)
     .component('DsnForm', DsnForm)
     .component('DsnFormItem', DsnFormItem)
     .component('DsnInput', DsnInput)
@@ -26,6 +29,7 @@ export default function registerComponents (app: App): void {
     .component('DsnHeading1', DsnHeading1)
     .component('DsnHeading2', DsnHeading2)
     .component('DsnNav', DsnNav)
+    .component('DsnRow', DsnRow)
     .component('DsnTable', DsnTable)
     .component('DsnColumn', DsnColumn);
 }

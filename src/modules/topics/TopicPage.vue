@@ -2,83 +2,83 @@
   <dsn-heading-2>
     Topic: {{ data.topic.name }}
   </dsn-heading-2>
-  <el-row
+  <dsn-row
     class="pt-5"
   >
-    <el-col
+    <dsn-col
       :span="10"
       :offset="2"
       class="border border-black"
     >
       <span># of partitions</span>
-    </el-col>
-    <el-col
+    </dsn-col>
+    <dsn-col
       :span="10"
       class="border-b border-r border-t border-black"
     >
       <span>{{ data.topic.partitions }}</span>
-    </el-col>
-  </el-row>
-  <el-row>
-    <el-col
+    </dsn-col>
+  </dsn-row>
+  <dsn-row>
+    <dsn-col
       :span="10"
       :offset="2"
       class="local-border border-l border-black"
     >
       <span>Preferred replicas</span>
-    </el-col>
-    <el-col
+    </dsn-col>
+    <dsn-col
       :span="10"
       class="local-border border-black"
     >
       <span>{{ data.topic.preferred }}</span>
-    </el-col>
-  </el-row>
-  <el-row>
-    <el-col
+    </dsn-col>
+  </dsn-row>
+  <dsn-row>
+    <dsn-col
       :span="10"
       :offset="2"
       class="local-border border-l border-black"
     >
       <span>Under-replicated partitions</span>
-    </el-col>
-    <el-col
+    </dsn-col>
+    <dsn-col
       :span="10"
       class="local-border border-black"
     >
       <span>{{ data.topic.replicated }}</span>
-    </el-col>
-  </el-row>
-  <el-row>
-    <el-col
+    </dsn-col>
+  </dsn-row>
+  <dsn-row>
+    <dsn-col
       :span="10"
       :offset="2"
       class="local-border border-l border-black"
     >
       <span>Total size</span>
-    </el-col>
-    <el-col
+    </dsn-col>
+    <dsn-col
       :span="10"
       class="local-border border-black"
     >
       <span>{{ data.topic.size }}</span>
-    </el-col>
-  </el-row>
-  <el-row>
-    <el-col
+    </dsn-col>
+  </dsn-row>
+  <dsn-row>
+    <dsn-col
       :span="10"
       :offset="2"
       class="local-border border-l border-black"
     >
       <span>Total available messages</span>
-    </el-col>
-    <el-col
+    </dsn-col>
+    <dsn-col
       :span="10"
       class="local-border border-black"
     >
       <span>{{ data.topic.messages }}</span>
-    </el-col>
-  </el-row>
+    </dsn-col>
+  </dsn-row>
 </template>
 <script lang="ts">
 import { defineComponent, onMounted, inject, reactive } from 'vue';
@@ -106,13 +106,12 @@ export default defineComponent({
     });
 
     onMounted(async () => {
-      const resultUsers: TTopic = await http.get<TTopic>('/topics/' + props.id);
-      data.topic = resultUsers
+      const resultTopics: TTopic = await http.get<TTopic>('/topics/' + props.id);
+      data.topic = resultTopics
     });
 
     return {
       data,
-      props,
     };
   },
 

@@ -1,7 +1,7 @@
 import { ComponentPublicInstance } from 'vue';
 import { shallowMount, VueWrapper } from '@vue/test-utils';
 import TopNav from './TopNav.vue';
-import DsnNav from '@/components/DsnNav.vue';
+import DsnNav from '@/components/DsnLayouts/DsnNav.vue';
 
 jest.mock('vue-router', () => ({
   useRoute: jest.fn().mockImplementation(() => ({

@@ -49,7 +49,7 @@
 </template>
 
 <script lang="ts">
-import { TTopic } from '../../topics/types';
+import { TTopic } from '@/modules/topics/types';
 import { defineComponent, ref, PropType, toRefs, watchEffect } from 'vue';
 import { useRouter } from 'vue-router';
 
