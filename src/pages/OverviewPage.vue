@@ -10,12 +10,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, inject, ref } from 'vue';
+import { defineComponent, inject } from 'vue';
 import OverviewBrokers from '../modules/brokers/components/OverviewBrokers.vue'
 import OverviewTopics from '../modules/topics/components/OverviewTopics.vue'
 
-import { TBroker } from '@/modules/brokers/types';
-import { TTopic } from '@/modules/topics/types';
+import { getAllBrokers } from '@/modules/brokers/api';
+import { getAllTopics } from '@/modules/topics/api';
+
 import ApiHttpSingleton from '@/utils/http';
 
 export default defineComponent({
@@ -25,16 +26,8 @@ export default defineComponent({
   },
   setup () {
     const http: ApiHttpSingleton = inject('http', ApiHttpSingleton.getInstance()); // inject apiClient
-    const brokers = ref<TBroker[]>([]);
-    const topics = ref<TTopic[]>([]);
-
-    onMounted(async () => {
-      const resultTopics: TTopic[] = await http.get<TTopic[]>('/topics');
-      topics.value = resultTopics
-
-      const resultBrokers: TBroker[] = await http.get<TBroker[]>('/brokers');
-      brokers.value = resultBrokers
-    });
+    const { brokers } = getAllBrokers(http);
+    const { topics } = getAllTopics(http);
 
     return {
       brokers,
