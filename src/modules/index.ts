@@ -1,3 +1,4 @@
+import './errors';
 import './auth';
 import './users';
 import './overview';
