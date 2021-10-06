@@ -49,6 +49,6 @@ export function addRoute (route: RouteRecordRaw): void {
   }
 }
 
-export function addBeforEachHook (hook: NavigationGuard): void {
+export function addBeforeEachHook (hook: NavigationGuard): void {
   router.beforeEach(hook);
 }
