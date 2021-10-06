@@ -1,6 +1,6 @@
 import './errors';
 import './auth';
 import './users';
-import './overview';
+import './brokers';
 import './test';
 import './topics';

@@ -4,13 +4,13 @@ import {
   RouteRecordRaw,
   NavigationGuard,
 } from 'vue-router';
-import Home from '../pages/Home.vue';
+import Overview from '../pages/OverviewPage.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'Home',
-    component: Home,
+    name: 'Overview',
+    component: Overview,
     meta: {
       inNav: true,
     },

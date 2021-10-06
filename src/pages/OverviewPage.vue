@@ -11,10 +11,10 @@
 
 <script lang="ts">
 import { defineComponent, onMounted, inject, ref } from 'vue';
-import OverviewBrokers from './components/OverviewBrokers.vue'
-import OverviewTopics from './components/OverviewTopics.vue'
+import OverviewBrokers from '../modules/brokers/components/OverviewBrokers.vue'
+import OverviewTopics from '../modules/topics/components/OverviewTopics.vue'
 
-import { TBroker } from './types';
+import { TBroker } from '@/modules/brokers/types';
 import { TTopic } from '@/modules/topics/types';
 import ApiHttpSingleton from '@/utils/http';
 
