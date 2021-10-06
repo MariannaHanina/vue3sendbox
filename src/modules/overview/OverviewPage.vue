@@ -6,7 +6,7 @@
   <dsn-heading-2 class="text-left pl-3">
     Topics
   </dsn-heading-2>
-  <overview-topics :users="users" />
+  <overview-topics :topics="topics" />
 </template>
 
 <script lang="ts">
@@ -14,8 +14,9 @@ import { defineComponent, onMounted, inject, ref } from 'vue';
 import OverviewBrokers from './components/OverviewBrokers.vue'
 import OverviewTopics from './components/OverviewTopics.vue'
 
-import { TBroker, TUser } from './types'
-import ApiHttpSingleton from '@/utils/http'
+import { TBroker } from './types';
+import { TTopic } from '@/modules/topics/types';
+import ApiHttpSingleton from '@/utils/http';
 
 export default defineComponent({
   components: {
@@ -25,11 +26,11 @@ export default defineComponent({
   setup () {
     const http: ApiHttpSingleton = inject('http', ApiHttpSingleton.getInstance()); // inject apiClient
     const brokers = ref<TBroker[]>([]);
-    const users = ref<TUser[]>([]);
+    const topics = ref<TTopic[]>([]);
 
     onMounted(async () => {
-      const resultUsers: TUser[] = await http.get<TUser[]>('/users');
-      users.value = resultUsers
+      const resultTopics: TTopic[] = await http.get<TTopic[]>('/topics');
+      topics.value = resultTopics
 
       const resultBrokers: TBroker[] = await http.get<TBroker[]>('/brokers');
       brokers.value = resultBrokers
@@ -37,7 +38,7 @@ export default defineComponent({
 
     return {
       brokers,
-      users,
+      topics,
     };
   },
 });

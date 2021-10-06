@@ -1,6 +1,7 @@
 <template>
   <dsn-table
     :data="dataTable"
+    @row-click="onRowClick($event)"
   >
     <dsn-column
       prop="name"
@@ -28,44 +29,51 @@
       </template>
     </dsn-column>
     <dsn-column
-      prop="phone"
-      label="Phone"
+      prop="partitions"
+      label="Partitions"
       min-width="100"
     />
     <dsn-column
-      prop="username"
-      label="UserName"
+      prop="preferred"
+      label="Preferred"
     />
     <dsn-column
-      prop="website"
-      label="Website"
+      prop="replicated"
+      label="Under-replicated"
+    />
+    <dsn-column
+      prop="config"
+      label="Custom config"
     />
   </dsn-table>
 </template>
 
 <script lang="ts">
-import { TUser } from '../types';
+import { TTopic } from '@/modules/topics/types';
 import { defineComponent, ref, PropType, toRefs, watchEffect } from 'vue';
+import { useRouter } from 'vue-router';
 
 export default defineComponent({
   props: {
-    users: {
-      type: Array as PropType<TUser[]>,
+    topics: {
+      type: Array as PropType<TTopic[]>,
       required: true,
     },
     test: { type: Number, default: 0 },
   },
   setup (props) {
-    const dataTable = ref<TUser[]>([]);
+    const router = useRouter()
+
+    const dataTable = ref<TTopic[]>([]);
     const searchTopicName = ref('');
 
-    const { users } = toRefs(props)
+    const { topics } = toRefs(props)
     watchEffect(() => {
-      dataTable.value = users.value;
+      dataTable.value = topics.value;
     })
 
     function clearFilter () {
-      dataTable.value = users.value;
+      dataTable.value = topics.value;
     }
     function filterHandler () {
       if (searchTopicName.value === '') {
@@ -73,17 +81,22 @@ export default defineComponent({
         return;
       }
 
-      dataTable.value = users.value.filter((user: TUser) => {
+      dataTable.value = topics.value.filter((user: TTopic) => {
         return user.name.toLowerCase().indexOf(searchTopicName.value) >= 0
       })
     }
     clearFilter();
+
+    function onRowClick (user: TTopic) {
+      router.push({ name: 'Topic', params: { id: user.id } })
+    }
 
     return {
       dataTable,
       searchTopicName,
       filterHandler,
       clearFilter,
+      onRowClick,
     }
   },
 });
