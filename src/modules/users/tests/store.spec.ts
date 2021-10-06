@@ -1,5 +1,8 @@
 import { users } from './mockData';
 import { mutations, actions } from '@/modules/users/store';
+import { ActionContext } from 'vuex';
+import { TRootState } from '@/store/types';
+import { TUsersState } from '../types';
 
 jest.mock('@/modules/users/api.ts', () => {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -33,7 +36,9 @@ describe('Users module -> store module', () => {
 
       beforeEach(async () => {
         commit = jest.fn();
-        await fetchUsers({ commit } as any);
+        await fetchUsers(
+          { commit } as unknown as ActionContext<TUsersState, TRootState>,
+        );
       });
 
       test('mutation method has been called', () => {

@@ -7,7 +7,8 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
-    "test:unit:coverage": "vue-cli-service test:unit --coverage"
+    "test:unit:coverage": "vue-cli-service test:unit --coverage",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@element-plus/icons": "^0.0.11",
@@ -46,6 +47,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^7.18.0",
+    "husky": "^7.0.2",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "tailwindcss": "^2.2.15",
