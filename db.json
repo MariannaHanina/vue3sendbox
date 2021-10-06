@@ -17,6 +17,68 @@
          "partitions": "60"
       }
    ],
+   "topics": [
+      {
+         "id": "1",
+         "name": "StrikeSettleST",
+         "partitions": 14,
+         "preffered": 100,
+         "replicated": 0,
+         "config": false,
+         "size": 5,
+         "messages": 5
+      },
+      {
+         "id": "2",
+         "name": "StrikeSettleST2",
+         "partitions": 14,
+         "preffered": 100,
+         "replicated": 0,
+         "config": false,
+         "size": 5,
+         "messages": 5
+      },
+      {
+         "id": "3",
+         "name": "StrikeSettleST3",
+         "partitions": 14,
+         "preffered": 100,
+         "replicated": 0,
+         "config": false,
+         "size": 5,
+         "messages": 5
+      },
+      {
+         "id": "13",
+         "name": "StrikeSettleST13",
+         "partitions": 14,
+         "preffered": 100,
+         "replicated": 0,
+         "config": false,
+         "size": 5,
+         "messages": 5
+      },
+      {
+         "id": "4",
+         "name": "StrikeSettleST4",
+         "partitions": 14,
+         "preffered": 100,
+         "replicated": 0,
+         "config": false,
+         "size": 5,
+         "messages": 5
+      },
+      {
+         "id": "5",
+         "name": "StrikeSettleST5",
+         "partitions": 14,
+         "preffered": 100,
+         "replicated": 0,
+         "config": false,
+         "size": 5,
+         "messages": 5
+      }
+   ],
    "users": [
       {
          "id": 1,
