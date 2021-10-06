@@ -9,6 +9,7 @@
     <div class="py-16">
       <slot />
     </div>
+    <errors-drawer />
   </div>
 </template>
 
@@ -16,12 +17,14 @@
 import { defineComponent } from 'vue';
 import TopNav from './components/TopNav/TopNav.vue';
 import LogoutButton from './components/LogoutButton.vue';
+import ErrorsDrawer from '@/modules/errors/components/ErrorsDrawer.vue';
 
 export default defineComponent({
   name: 'DsnLayoutDefault',
   components: {
     TopNav,
     LogoutButton,
+    ErrorsDrawer,
   },
 });
 

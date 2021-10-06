@@ -3,6 +3,7 @@ import {
   ElAlert,
   ElButton,
   ElCol,
+  ElDrawer,
   ElForm,
   ElFormItem,
   ElHeader,
@@ -17,7 +18,10 @@ import {
   ElTableColumn,
 } from 'element-plus';
 
-import { Edit } from '@element-plus/icons';
+import {
+  ArrowUpBold,
+  Edit,
+} from '@element-plus/icons';
 
 export type ComponentSize = 'large' | 'medium' | 'small' | 'mini';
 
@@ -39,6 +43,7 @@ export default {
       .use(ElAlert)
       .use(ElButton)
       .use(ElCol)
+      .use(ElDrawer)
       .use(ElForm)
       .use(ElFormItem)
       .use(ElHeader)
@@ -54,6 +59,7 @@ export default {
 
     // иконки
     app
+      .component('ArrowUpBold', ArrowUpBold)
       .component('Edit', Edit);
   },
 }
