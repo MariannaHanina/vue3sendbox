@@ -81,9 +81,8 @@
   </dsn-row>
 </template>
 <script lang="ts">
-import { defineComponent, inject } from 'vue';
+import { defineComponent } from 'vue';
 
-import ApiHttpSingleton from '@/utils/http'
 import { getTopicByID } from './composables/getTopicByID';
 
 export default defineComponent({
@@ -92,8 +91,7 @@ export default defineComponent({
     id: { type: String, required: true },
   },
   setup (props) {
-    const http: ApiHttpSingleton = inject('http', ApiHttpSingleton.getInstance()); // inject apiClient
-    const data = getTopicByID(http, props.id);
+    const data = getTopicByID(props.id);
 
     return {
       data,

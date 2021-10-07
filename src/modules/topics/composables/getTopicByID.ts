@@ -1,9 +1,8 @@
-import ApiHttpSingleton from '@/utils/http';
 import { TTopic } from '../types';
 import { reactive, onMounted } from 'vue';
 import { fetchTopic } from '../api';
 
-export function getTopicByID (http: ApiHttpSingleton, id: string): { topic: TTopic } {
+export function getTopicByID (id: string): { topic: TTopic } {
   const data = reactive({
     topic: {
       id: '',
@@ -18,7 +17,7 @@ export function getTopicByID (http: ApiHttpSingleton, id: string): { topic: TTop
   });
 
   onMounted(async () => {
-    const resultTopic: TTopic = await fetchTopic(http, id);
+    const resultTopic: TTopic = await fetchTopic(id);
     data.topic = resultTopic
   });
 

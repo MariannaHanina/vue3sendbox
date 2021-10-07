@@ -1,13 +1,12 @@
-import ApiHttpSingleton from '@/utils/http';
 import { TBroker } from '../types';
 import { ref, onMounted, ToRef } from 'vue';
 import { fetchBrokers } from '../api';
 
-export function getAllBrokers (http: ApiHttpSingleton): { brokers: ToRef<TBroker[]> } {
+export function getAllBrokers (): { brokers: ToRef<TBroker[]> } {
   const brokers = ref<TBroker[]>([]);
 
   onMounted(async () => {
-    const resultBrokers: TBroker[] = await fetchBrokers(http);
+    const resultBrokers: TBroker[] = await fetchBrokers();
     brokers.value = resultBrokers
   });
 

@@ -10,14 +10,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, inject } from 'vue';
+import { defineComponent } from 'vue';
 import OverviewBrokers from '../modules/brokers/components/OverviewBrokers.vue'
 import OverviewTopics from '../modules/topics/components/OverviewTopics.vue'
 
 import { getAllBrokers } from '@/modules/brokers/composables/getAllBrokers';
 import { getAllTopics } from '@/modules/topics/composables/getAllTopics';
-
-import ApiHttpSingleton from '@/utils/http';
 
 export default defineComponent({
   name: 'OverviewPage',
@@ -26,9 +24,8 @@ export default defineComponent({
     OverviewBrokers,
   },
   setup () {
-    const http: ApiHttpSingleton = inject('http', ApiHttpSingleton.getInstance()); // inject apiClient
-    const { brokers } = getAllBrokers(http);
-    const { topics } = getAllTopics(http);
+    const { brokers } = getAllBrokers();
+    const { topics } = getAllTopics();
 
     return {
       brokers,
