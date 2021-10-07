@@ -1,16 +1,10 @@
 import ApiHttpSingleton from '@/utils/http';
 import { TTopic } from './types';
-import { ref, onMounted, ToRef } from 'vue';
 
-export function getAllTopics (http: ApiHttpSingleton): { topics: ToRef<TTopic[]> } {
-  const topics = ref<TTopic[]>([]);
+export async function fetchTopics (http: ApiHttpSingleton): Promise<TTopic[]> {
+  return await http.get<TTopic[]>('/topics');
+}
 
-  onMounted(async () => {
-    const resultTopics: TTopic[] = await http.get<TTopic[]>('/topics');
-    topics.value = resultTopics
-  });
-
-  return {
-    topics,
-  }
+export async function fetchTopic (http: ApiHttpSingleton, id: string): Promise<TTopic> {
+  return await http.get<TTopic>('/topics/' + id);
 }

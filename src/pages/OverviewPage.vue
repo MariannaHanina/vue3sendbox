@@ -14,8 +14,8 @@ import { defineComponent, inject } from 'vue';
 import OverviewBrokers from '../modules/brokers/components/OverviewBrokers.vue'
 import OverviewTopics from '../modules/topics/components/OverviewTopics.vue'
 
-import { getAllBrokers } from '@/modules/brokers/api';
-import { getAllTopics } from '@/modules/topics/api';
+import { getAllBrokers } from '@/modules/brokers/composables/getAllBrokers';
+import { getAllTopics } from '@/modules/topics/composables/getAllTopics';
 
 import ApiHttpSingleton from '@/utils/http';
 

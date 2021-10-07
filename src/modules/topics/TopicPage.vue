@@ -81,10 +81,10 @@
   </dsn-row>
 </template>
 <script lang="ts">
-import { defineComponent, onMounted, inject, reactive } from 'vue';
+import { defineComponent, inject } from 'vue';
 
-import { TTopic } from './types'
 import ApiHttpSingleton from '@/utils/http'
+import { getTopicByID } from './composables/getTopicByID';
 
 export default defineComponent({
   props: {
@@ -92,23 +92,7 @@ export default defineComponent({
   },
   setup (props) {
     const http: ApiHttpSingleton = inject('http', ApiHttpSingleton.getInstance()); // inject apiClient
-    const data = reactive({
-      topic: {
-        id: '',
-        name: '',
-        partitions: 0,
-        preferred: 0,
-        replicated: 0,
-        config: false,
-        size: 0,
-        messages: 0,
-      },
-    });
-
-    onMounted(async () => {
-      const resultTopics: TTopic = await http.get<TTopic>('/topics/' + props.id);
-      data.topic = resultTopics
-    });
+    const data = getTopicByID(http, props.id);
 
     return {
       data,
