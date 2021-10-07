@@ -87,6 +87,7 @@ import ApiHttpSingleton from '@/utils/http'
 import { getTopicByID } from './composables/getTopicByID';
 
 export default defineComponent({
+  name: 'TopicPage',
   props: {
     id: { type: String, required: true },
   },

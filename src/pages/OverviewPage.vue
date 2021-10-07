@@ -20,6 +20,7 @@ import { getAllTopics } from '@/modules/topics/composables/getAllTopics';
 import ApiHttpSingleton from '@/utils/http';
 
 export default defineComponent({
+  name: 'OverviewPage',
   components: {
     OverviewTopics,
     OverviewBrokers,

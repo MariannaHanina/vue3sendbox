@@ -54,6 +54,7 @@ import { defineComponent, ref, PropType, toRefs, watchEffect } from 'vue';
 import { useRouter } from 'vue-router';
 
 export default defineComponent({
+  name: 'OverviewTopics',
   props: {
     topics: {
       type: Array as PropType<TTopic[]>,
