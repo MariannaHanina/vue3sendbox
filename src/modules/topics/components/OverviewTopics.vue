@@ -73,6 +73,9 @@ export default defineComponent({
       dataTable.value = topics.value;
     });
 
+    function filterTopics (topic: TTopic) {
+      return topic.name.toLowerCase().indexOf(searchTopicName.value.toLowerCase()) >= 0;
+    }
     function clearFilter () {
       dataTable.value = topics.value;
     }
@@ -82,14 +85,12 @@ export default defineComponent({
         return;
       }
 
-      dataTable.value = topics.value.filter((user: TTopic) => {
-        return user.name.toLowerCase().indexOf(searchTopicName.value) >= 0;
-      });
+      dataTable.value = topics.value.filter(filterTopics);
     }
     clearFilter();
 
-    function onRowClick (user: TTopic) {
-      router.push({ name: 'Topic', params: { id: user.id } });
+    function onRowClick (topic: TTopic) {
+      router.push({ name: 'Topic', params: { id: topic.id } });
     }
 
     return {
@@ -98,6 +99,7 @@ export default defineComponent({
       filterHandler,
       clearFilter,
       onRowClick,
+      filterTopics,
     };
   },
 });
