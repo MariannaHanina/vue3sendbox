@@ -12,4 +12,4 @@ module.exports = {
     '**/__tests__/*.[jt]s?(x)',
     '**/src/**/*.spec.[jt]s?(x)',
   ],
-}
+};

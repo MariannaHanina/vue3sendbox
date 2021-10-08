@@ -63,15 +63,15 @@ export default defineComponent({
     test: { type: Number, default: 0 },
   },
   setup (props) {
-    const router = useRouter()
+    const router = useRouter();
 
     const dataTable = ref<TTopic[]>([]);
     const searchTopicName = ref('');
 
-    const { topics } = toRefs(props)
+    const { topics } = toRefs(props);
     watchEffect(() => {
       dataTable.value = topics.value;
-    })
+    });
 
     function clearFilter () {
       dataTable.value = topics.value;
@@ -83,13 +83,13 @@ export default defineComponent({
       }
 
       dataTable.value = topics.value.filter((user: TTopic) => {
-        return user.name.toLowerCase().indexOf(searchTopicName.value) >= 0
-      })
+        return user.name.toLowerCase().indexOf(searchTopicName.value) >= 0;
+      });
     }
     clearFilter();
 
     function onRowClick (user: TTopic) {
-      router.push({ name: 'Topic', params: { id: user.id } })
+      router.push({ name: 'Topic', params: { id: user.id } });
     }
 
     return {
@@ -98,7 +98,7 @@ export default defineComponent({
       filterHandler,
       clearFilter,
       onRowClick,
-    }
+    };
   },
 });
 </script>

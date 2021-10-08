@@ -16,7 +16,7 @@ const actions: ActionTree<TErrorsState, TRootState> & TErrorsActions = {
   addError ({ commit }, error: Error) {
     commit('ADD_ERROR', error);
   },
-}
+};
 
 const errorsModule: Module<TErrorsState, TRootState> = {
   namespaced: true,

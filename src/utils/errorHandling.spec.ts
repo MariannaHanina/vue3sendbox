@@ -61,7 +61,7 @@ describe('errorHandlig utilities', () => {
       } catch (e) {}
 
       expect(consoleSpy).not.toHaveBeenCalled();
-    })
+    });
 
     test('returns Promise reject', async () => {
       try {

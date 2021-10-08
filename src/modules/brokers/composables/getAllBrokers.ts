@@ -7,10 +7,10 @@ export function getAllBrokers (): { brokers: ToRef<TBroker[]> } {
 
   onMounted(async () => {
     const resultBrokers: TBroker[] = await fetchBrokers();
-    brokers.value = resultBrokers
+    brokers.value = resultBrokers;
   });
 
   return {
     brokers,
-  }
+  };
 }

@@ -93,8 +93,8 @@
 <script lang="ts">
 import { defineComponent, ref, reactive, onMounted, inject } from 'vue';
 import { ElForm } from 'element-plus';
-import ApiHttpSingleton from '@/utils/http'
-import WSClient from '@/utils/websocket'
+import ApiHttpSingleton from '@/utils/http';
+import WSClient from '@/utils/websocket';
 
 export type TUser = {
   id: number,
@@ -115,14 +115,14 @@ export type TUser = {
 export default defineComponent({
   props: {},
   setup () {
-    const wsp: WSClient = inject('wsp', new WSClient()) // inject WSClient
+    const wsp: WSClient = inject('wsp', new WSClient()); // inject WSClient
 
     const submitForm2 = async () => {
       const res = await wsp.connect();
       const res2 = wsp.send('test');
-      console.log(res)
-      console.log(res2)
-    }
+      console.log(res);
+      console.log(res2);
+    };
 
     const firstName = ref('');
     const secondName = ref('');
@@ -135,7 +135,7 @@ export default defineComponent({
         region: null,
         type: null,
       },
-    )
+    );
     const rules = reactive({
       name: [
         {
@@ -158,29 +158,29 @@ export default defineComponent({
         },
       ],
     },
-    )
+    );
 
     const formName = ref<typeof ElForm|null>(null);
     const submitForm = () => {
       if (formName.value) {
         formName.value.validate((valid: boolean) => {
           if (valid) {
-            alert('submit!')
+            alert('submit!');
           } else {
-            console.log('error submit!!')
+            console.log('error submit!!');
             return false;
           }
-        })
+        });
       }
-    }
+    };
 
     const http: ApiHttpSingleton = inject('http', ApiHttpSingleton.getInstance()); // inject apiClient
     const data = ref<TUser[]>([]);
 
     onMounted(async () => {
       const result: TUser[] = await http.get<TUser[]>('/users');
-      data.value = result
-      console.log(data.value)
+      data.value = result;
+      console.log(data.value);
     });
 
     const switcher = ref(true);
@@ -197,7 +197,7 @@ export default defineComponent({
       data,
       submitForm,
       submitForm2,
-    }
+    };
   },
 });
 </script>

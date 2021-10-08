@@ -22,7 +22,7 @@ export default defineComponent({
       } catch (e) {
         throw new Error(`There's no layout width name ${layoutName}`);
       }
-    }
+    };
 
     watch(
       () => route.meta,
@@ -47,7 +47,7 @@ export default defineComponent({
 
     return {
       layout,
-    }
+    };
   },
 });
 </script>

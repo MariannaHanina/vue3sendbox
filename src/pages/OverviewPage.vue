@@ -11,8 +11,8 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import OverviewBrokers from '../modules/brokers/components/OverviewBrokers.vue'
-import OverviewTopics from '../modules/topics/components/OverviewTopics.vue'
+import OverviewBrokers from '../modules/brokers/components/OverviewBrokers.vue';
+import OverviewTopics from '../modules/topics/components/OverviewTopics.vue';
 
 import { getAllBrokers } from '@/modules/brokers/composables/getAllBrokers';
 import { getAllTopics } from '@/modules/topics/composables/getAllTopics';

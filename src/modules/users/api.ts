@@ -14,4 +14,4 @@ export default {
   getAll (): Promise<TUser[]> {
     return Promise.resolve(users);
   },
-}
+};

@@ -61,4 +61,4 @@ export const topics: TTopic[] = [
     size: 5,
     messages: 5,
   },
-]
+];

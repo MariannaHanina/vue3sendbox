@@ -55,11 +55,11 @@ export default {
       .use(ElRow)
       .use(ElSwitch)
       .use(ElTable)
-      .use(ElTableColumn)
+      .use(ElTableColumn);
 
     // иконки
     app
       .component('ArrowUpBold', ArrowUpBold)
       .component('Edit', Edit);
   },
-}
+};

@@ -6,8 +6,8 @@
 <script lang="ts">
 import { defineComponent, onMounted, inject, reactive } from 'vue';
 
-import { TBroker } from './types'
-import ApiHttpSingleton from '@/utils/http'
+import { TBroker } from './types';
+import ApiHttpSingleton from '@/utils/http';
 
 export default defineComponent({
   props: {
@@ -28,7 +28,7 @@ export default defineComponent({
 
     onMounted(async () => {
       const resultBroker: TBroker = await http.get<TBroker>('/brokers/' + props.id);
-      data.broker = resultBroker
+      data.broker = resultBroker;
     });
 
     return {

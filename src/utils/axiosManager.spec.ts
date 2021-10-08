@@ -58,7 +58,7 @@ describe('AxiosManager class', () => {
       const data = { data: 'test' } as AxiosResponse;
       const response = axiosManager.httpResponseHandler(data);
       expect(response).toBe(data);
-    })
+    });
 
     test('setAuthorizationHeader sets token into appropriate header', () => {
       const token = '123456';
