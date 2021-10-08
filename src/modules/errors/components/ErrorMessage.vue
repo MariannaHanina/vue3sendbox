@@ -44,7 +44,7 @@ export default defineComponent({
       default: null,
     },
   },
-})
+});
 </script>
 
 <style lang="scss">

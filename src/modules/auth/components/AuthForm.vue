@@ -46,7 +46,7 @@ export default defineComponent({
           title: 'Authorization Error',
           message: e,
           type: 'error',
-        })
+        });
       }
     };
 

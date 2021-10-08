@@ -11,7 +11,7 @@ export function errorHandler (err: unknown, vm: ComponentPublicInstance | null, 
   const error: TError = {
     type: 'component',
     details: `${err} in ${vm?.$options.name} -> ${info}`,
-  }
+  };
 
   setError(error);
 }
@@ -20,7 +20,7 @@ export function warnHandler (msg: string, vm: ComponentPublicInstance | null, tr
   const error: TError = {
     type: 'warning',
     details: `${msg} in ${vm?.$options.name} -> ${trace}`,
-  }
+  };
 
   setError(error);
 }
