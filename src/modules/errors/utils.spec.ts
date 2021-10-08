@@ -3,6 +3,7 @@ import {
   errorHandler,
   warnHandler,
   httpErrorHandler,
+  codeErrorHandler,
 } from './utils';
 import store from '@/store';
 
@@ -13,7 +14,7 @@ describe('errorHandlig utilities', () => {
     jest.clearAllMocks();
   });
 
-  test('errorHandler calls console.log', () => {
+  test('errorHandler calls special dispatch with needed params', () => {
     const err = 'error';
     const info = 'info';
     const error = {
@@ -25,7 +26,7 @@ describe('errorHandlig utilities', () => {
     expect(store.dispatch).toHaveBeenCalledWith('errors/addError', error);
   });
 
-  test('warnHandler calls console.log', () => {
+  test('warnHandler calls special dispatch with needed params', () => {
     const msg = 'message';
     const trace = 'trace';
     const error = {
@@ -37,30 +38,34 @@ describe('errorHandlig utilities', () => {
     expect(store.dispatch).toHaveBeenCalledWith('errors/addError', error);
   });
 
-  // describe('httpErrorHandler', () => {
-  //   test('calls console.log with error data and code', async () => {
-  //     try {
-  //       await httpErrorHandler(error);
-  //     } catch (e) {}
+  test('httpErrorHandler calls special dispatch with needed params', async () => {
+    const err = {
+      message: 'message',
+      config: {
+        method: 'method',
+        baseURL: 'baseURL',
+        url: 'url',
+      },
+    } as unknown as AxiosError;
 
-  //     expect(consoleSpy.mock.calls[0][1]).toBe(error.response?.data);
-  //     expect(consoleSpy.mock.calls[0][2]).toBe(error.response?.status);
-  //   });
+    const error = {
+      type: 'http',
+      details: 'message for METHOD: baseURLurl',
+    };
 
-  //   test('doesn`t call console.log if error code doesn`t come', async () => {
-  //     try {
-  //       await httpErrorHandler(errorWithoutStatus);
-  //     } catch (e) {}
+    httpErrorHandler(err);
+    expect(store.dispatch).toHaveBeenCalledWith('errors/addError', error);
+  });
 
-  //     expect(consoleSpy).not.toHaveBeenCalled();
-  //   })
+  test('codeErrorHandler calls special dispatch with needed params', () => {
+    const err = new Error('some error');
 
-  //   test('returns Promise reject', async () => {
-  //     try {
-  //       await httpErrorHandler(error);
-  //     } catch (e) {
-  //       expect(e).toBe(error);
-  //     }
-  //   });
-  // });
+    const error = {
+      type: 'code',
+      details: 'Error: some error',
+    };
+
+    codeErrorHandler(err);
+    expect(store.dispatch).toHaveBeenCalledWith('errors/addError', error);
+  });
 });
