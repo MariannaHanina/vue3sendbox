@@ -3,6 +3,7 @@ import authApi from './api';
 import ApiHttpSingleton from '@/utils/http';
 import { codeErrorHandler } from '@/modules/errors/utils';
 import { TRootState } from '@/store/types';
+import { setToken, getToken, deleteToken } from './utils';
 import {
   TCredentials,
   TAuthState,
@@ -11,11 +12,10 @@ import {
   TAuthGetters,
 } from './types';
 
-const LOCAL_STORAGE = 'dsn-token';
 const apiHttp = ApiHttpSingleton.getInstance();
 
 const state: TAuthState = {
-  token: localStorage.getItem(LOCAL_STORAGE) || '',
+  token: getToken() || '',
   status: '',
 };
 
@@ -40,7 +40,7 @@ const actions: ActionTree<TAuthState, TRootState> & TAuthActions = {
     commit('AUTH_REQUEST');
     try {
       const { token } = await authApi.login(credentials);
-      localStorage.setItem(LOCAL_STORAGE, token);
+      setToken(token);
       commit('AUTH_SUCCESS', token);
       apiHttp.manager.setAuthorizationHeader(token);
     } catch (e) {
@@ -51,7 +51,7 @@ const actions: ActionTree<TAuthState, TRootState> & TAuthActions = {
   },
   authLogout ({ commit }) {
     commit('AUTH_LOGOUT');
-    localStorage.removeItem(LOCAL_STORAGE);
+    deleteToken();
     apiHttp.manager.deleteAuthorizationHeader();
   },
 };
