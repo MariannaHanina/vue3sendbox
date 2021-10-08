@@ -1,5 +1,5 @@
-import { AxiosInstance, AxiosResponse } from 'axios';
-import { httpErrorHandler } from './errorHandling';
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios';
+import { httpErrorHandler } from '@/modules/errors/utils';
 import { TAxiosHeaders } from './http';
 
 export default class AxiosManager {
@@ -23,11 +23,20 @@ export default class AxiosManager {
     };
   }
 
+  httpRequestHandler (config: AxiosRequestConfig): AxiosRequestConfig {
+    return config;
+  }
+
   httpResponseHandler (response: AxiosResponse): AxiosResponse {
     return response;
   }
 
   setInterceptors (): void {
+    this.axios.interceptors.request.use(
+      this.httpRequestHandler,
+      httpErrorHandler,
+    );
+
     this.axios.interceptors.response.use(
       this.httpResponseHandler,
       httpErrorHandler,

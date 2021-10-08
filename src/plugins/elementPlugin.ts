@@ -24,6 +24,7 @@ import {
   Edit,
   Expand,
   Platform,
+  Warning,
 } from '@element-plus/icons';
 
 export type ComponentSize = 'large' | 'medium' | 'small' | 'mini';
@@ -66,6 +67,7 @@ export default {
       .component('Connection', Connection)
       .component('Edit', Edit)
       .component('Expand', Expand)
-      .component('Platform', Platform);
+      .component('Platform', Platform)
+      .component('Warning', Warning);
   },
 };

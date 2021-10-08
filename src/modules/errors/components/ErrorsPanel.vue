@@ -1,35 +1,65 @@
 <template>
-  <div>
-    <ul class="errors-description">
-      <li class="errors-description__item error error--http">
-        <el-icon>
-          <connection />
-        </el-icon>
-        HTTP error
-      </li>
-      <li class="errors-description__item error error--component">
-        <el-icon>
-          <platform />
-        </el-icon>
-        Component error
-      </li>
-      <li class="errors-description__item error error--code">
-        <el-icon>
-          <expand />
-        </el-icon>
-        Another code error
-      </li>
-    </ul>
-    Тут будет компонент списока ошибок.
+  <div class="text-left p-4 pt-0">
+    <div class="flex justify-between">
+      <ul class="errors-description text-sm">
+        <li class="errors-description__item">
+          <error-message
+            type="http"
+            details="HTTP error"
+          />
+        </li>
+        <li class="errors-description__item">
+          <error-message
+            type="component"
+            details="Component error"
+          />
+        </li>
+        <li class="errors-description__item">
+          <error-message
+            type="code"
+            details="Another code error"
+          />
+        </li>
+        <li class="errors-description__item">
+          <error-message
+            type="warning"
+            details="Warning"
+          />
+        </li>
+      </ul>
+      <dsn-button @click="clearList">
+        Clear all
+      </dsn-button>
+    </div>
+    <errors-list
+      :errors="errors"
+      class="mt-4 overflow-auto max-h-44"
+    />
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { computed, defineComponent } from 'vue';
+import { useStore } from 'vuex';
+import ErrorsList from './ErrorsList.vue';
+import ErrorMessage from './ErrorMessage.vue';
 
 export default defineComponent({
-  // setup () {
-  // },
+  components: {
+    ErrorsList,
+    ErrorMessage,
+  },
+  setup () {
+    const store = useStore();
+
+    const errors = computed(() => store.getters['errors/sortedByDate']);
+    const clearList = () => store.dispatch('errors/clearErrors');
+
+    return {
+      errors,
+      clearList,
+    };
+  },
 });
 </script>
 
@@ -39,7 +69,7 @@ export default defineComponent({
 }
 
 .error {
-  @apply rounded py-1 px-2 m-1;
+  @apply rounded py-1 px-2 m-1 align-middle;
 
   &--http {
     @apply bg-red-100;
@@ -51,6 +81,10 @@ export default defineComponent({
 
   &--code {
     @apply bg-red-300;
+  }
+
+  &--warning {
+    @apply bg-yellow-300;
   }
 }
 </style>

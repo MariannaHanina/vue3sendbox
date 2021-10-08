@@ -1,6 +1,7 @@
 import { Module, MutationTree, ActionTree, GetterTree } from 'vuex';
 import authApi from './api';
 import ApiHttpSingleton from '@/utils/http';
+import { codeErrorHandler } from '@/modules/errors/utils';
 import { TRootState } from '@/store/types';
 import {
   TCredentials,
@@ -43,7 +44,9 @@ const actions: ActionTree<TAuthState, TRootState> & TAuthActions = {
       commit('AUTH_SUCCESS', token);
       apiHttp.manager.setAuthorizationHeader(token);
     } catch (e) {
-      commit('AUTH_ERROR', e);
+      commit('AUTH_ERROR');
+      codeErrorHandler(e as Error);
+      throw e;
     }
   },
   authLogout ({ commit }) {
