@@ -13,14 +13,18 @@
     title="Error Panel"
     direction="btt"
   >
-    Тут будет список ошибок.
+    <errors-panel />
   </el-drawer>
 </template>
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
+import ErrorsPanel from './ErrorsPanel.vue';
 
 export default defineComponent({
+  components: {
+    ErrorsPanel,
+  },
   setup () {
     const drawerIsShown = ref(false);
 
