@@ -13,4 +13,4 @@ export default {
 
     app.provide('http', httpClient);
   },
-}
+};

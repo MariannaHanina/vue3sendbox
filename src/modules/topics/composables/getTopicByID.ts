@@ -18,8 +18,8 @@ export function getTopicByID (id: string): { topic: TTopic } {
 
   onMounted(async () => {
     const resultTopic: TTopic = await fetchTopic(id);
-    data.topic = resultTopic
+    data.topic = resultTopic;
   });
 
-  return data
+  return data;
 }

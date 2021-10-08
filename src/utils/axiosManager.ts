@@ -13,14 +13,14 @@ export default class AxiosManager {
     this.setDefaultHeaders({
       'Content-type': 'application/json',
       ...defaultHeaders,
-    })
+    });
   }
 
   setDefaultHeaders (headers: TAxiosHeaders): void {
     this.axios.defaults.headers = {
       ...this.axios.defaults.headers,
       ...headers,
-    }
+    };
   }
 
   httpResponseHandler (response: AxiosResponse): AxiosResponse {

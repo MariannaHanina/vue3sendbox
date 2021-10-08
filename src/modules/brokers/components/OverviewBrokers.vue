@@ -41,7 +41,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
-import { TBroker } from '../types'
+import { TBroker } from '../types';
 
 export default defineComponent({
   props: {

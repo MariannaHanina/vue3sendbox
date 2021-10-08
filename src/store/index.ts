@@ -1,4 +1,4 @@
-import { createStore, Module } from 'vuex'
+import { createStore, Module } from 'vuex';
 import { TRootState } from './types';
 
 const store = createStore<TRootState>({

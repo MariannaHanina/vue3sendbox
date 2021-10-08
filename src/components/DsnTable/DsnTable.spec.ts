@@ -15,7 +15,7 @@ describe('DsnTable.vue', () => {
   beforeEach(() => {
     wrapper = mount(DsnTable, {
       global,
-    })
+    });
   });
 
   afterEach(() => {
@@ -23,6 +23,6 @@ describe('DsnTable.vue', () => {
   });
 
   test('check table was rendered', async () => {
-    expect(wrapper.findComponent({ name: 'el-table' }).exists()).toBeTruthy()
+    expect(wrapper.findComponent({ name: 'el-table' }).exists()).toBeTruthy();
   });
 });

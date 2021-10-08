@@ -51,7 +51,7 @@ const actions: ActionTree<TAuthState, TRootState> & TAuthActions = {
     localStorage.removeItem(LOCAL_STORAGE);
     apiHttp.manager.deleteAuthorizationHeader();
   },
-}
+};
 
 const getters: GetterTree<TAuthState, TRootState> & TAuthGetters = {
   isAuthenticated: state => !!state.token,

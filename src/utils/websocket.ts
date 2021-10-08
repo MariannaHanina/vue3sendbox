@@ -23,6 +23,6 @@ export default class WSClient {
 
   // Просто посылает чтото на сервер, в дальнейшем похоже будет sendRequest использоваться
   public send (data: string): void {
-    this._wsp.send(data)
+    this._wsp.send(data);
   }
 }

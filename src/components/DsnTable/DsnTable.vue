@@ -21,11 +21,11 @@ export default defineComponent({
   setup (props) {
     const cellClass = () => {
       return props.dense ? 'no_padding' : '';
-    }
+    };
 
     return {
       cellClass,
-    }
+    };
   },
 });
 </script>

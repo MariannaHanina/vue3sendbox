@@ -40,7 +40,7 @@ describe('OverviewBrokers.vue', () => {
       topics,
     });
     expect(wrapper.find('.el-table__row').exists()).toBeTruthy();
-  })
+  });
   test('rendered input for filter data', () => {
     expect(wrapper.find('.el-input__inner').exists()).toBeTruthy();
   });

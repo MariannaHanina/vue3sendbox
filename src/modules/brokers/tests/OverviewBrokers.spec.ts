@@ -41,5 +41,5 @@ describe('OverviewBrokers.vue', () => {
       brokers,
     });
     expect(wrapper.find('.el-table__row').exists()).toBeTruthy();
-  })
+  });
 });

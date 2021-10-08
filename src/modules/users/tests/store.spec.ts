@@ -10,7 +10,7 @@ jest.mock('@/modules/users/api.ts', () => {
 
   return {
     getAll: jest.fn().mockResolvedValue(usersData.users),
-  }
+  };
 });
 
 describe('Users module -> store module', () => {
@@ -48,6 +48,6 @@ describe('Users module -> store module', () => {
       test('mutation method has been called with params', () => {
         expect(commit).toHaveBeenCalledWith('SET_USERS', users);
       });
-    })
+    });
   });
 });

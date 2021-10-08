@@ -32,5 +32,5 @@ describe('UserList.vue', () => {
     });
 
     expect(wrapper.find('ul').exists()).toBeTruthy();
-  })
+  });
 });

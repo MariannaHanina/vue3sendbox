@@ -14,7 +14,7 @@ describe('DsnButton.vue', () => {
   beforeEach(() => {
     wrapper = mount(DsnButton, {
       global,
-    })
+    });
   });
 
   afterEach(() => {

@@ -12,6 +12,6 @@ export default {
     app.config.globalProperties.ws = wsClient;
 
     app
-      .provide('wsp', wsClient)
+      .provide('wsp', wsClient);
   },
-}
+};

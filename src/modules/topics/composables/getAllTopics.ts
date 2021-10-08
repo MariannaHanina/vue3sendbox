@@ -7,10 +7,10 @@ export function getAllTopics (): { topics: ToRef<TTopic[]> } {
 
   onMounted(async () => {
     const resultTopics: TTopic[] = await fetchTopics();
-    topics.value = resultTopics
+    topics.value = resultTopics;
   });
 
   return {
     topics,
-  }
+  };
 }
