@@ -1,7 +1,7 @@
 import { ComponentPublicInstance } from '@vue/runtime-core';
 import { mount, VueWrapper } from '@vue/test-utils';
 import { brokers } from './mockData';
-import OverviewBrokers from '@/modules/overview/components/OverviewBrokers.vue';
+import OverviewBrokers from '@/modules/brokers/components/OverviewBrokers.vue';
 import DsnTable from '@/components/DsnTable/DsnTable.vue';
 import DsnColumn from '@/components/DsnTable/DsnColumn.vue';
 import DsnInput from '@/components/DsnInput.vue';
