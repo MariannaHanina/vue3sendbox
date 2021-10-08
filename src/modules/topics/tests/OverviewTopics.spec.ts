@@ -1,4 +1,4 @@
-import { ComponentPublicInstance, nextTick } from 'vue';
+import { ComponentPublicInstance } from 'vue';
 import { mount, VueWrapper } from '@vue/test-utils';
 import { topics } from './mockData';
 import OverviewTopics from '@/modules/topics/components/OverviewTopics.vue';
@@ -39,7 +39,7 @@ describe('OverviewBrokers.vue', () => {
   });
   afterEach(() => {
     jest.resetAllMocks();
-  })
+  });
 
   test('pass empty array into users prop', () => {
     expect(wrapper.find('.el-table__row').exists()).not.toBeTruthy();
@@ -56,35 +56,35 @@ describe('OverviewBrokers.vue', () => {
   });
   test('pass value to search field and filterHandler was called', async () => {
     const filterHandler = jest.spyOn(wrapper.vm, 'filterHandler');
-    const searchInput = wrapper.find('.el-input__inner')
-    await searchInput.setValue('some value')
+    const searchInput = wrapper.find('.el-input__inner');
+    await searchInput.setValue('some value');
 
-    const inputField: HTMLInputElement = wrapper.find('.el-input__inner').element as HTMLInputElement
-    expect(inputField.value).toBe('some value')
+    const inputField: HTMLInputElement = wrapper.find('.el-input__inner').element as HTMLInputElement;
+    expect(inputField.value).toBe('some value');
 
     expect(filterHandler).toHaveBeenCalledTimes(1);
   });
   test('clearFilter method was called', async () => {
-    const clearFilter = jest.spyOn(wrapper.vm, 'clearFilter');
-    const searchInput = wrapper.find('.el-input__inner')
-    const inputField: HTMLInputElement = searchInput.element as HTMLInputElement
+    // const clearFilter = jest.spyOn(wrapper.vm, 'clearFilter');
+    const searchInput = wrapper.find('.el-input__inner');
+    const inputField: HTMLInputElement = searchInput.element as HTMLInputElement;
 
-    await searchInput.setValue('some value')
-    expect(inputField.value).toBe('some value')
+    await searchInput.setValue('some value');
+    expect(inputField.value).toBe('some value');
 
-    await searchInput.setValue('')
-    expect(inputField.value).toBe('')
+    await searchInput.setValue('');
+    expect(inputField.value).toBe('');
 
     // expect(clearFilter).toHaveBeenCalled()
   });
   test('filterTopics was called', async () => {
-    const searchInput = wrapper.find('.el-input__inner')
-    const inputField: HTMLInputElement = searchInput.element as HTMLInputElement
+    const searchInput = wrapper.find('.el-input__inner');
+    const inputField: HTMLInputElement = searchInput.element as HTMLInputElement;
     const topic = { name: 'TestName' };
-    await searchInput.setValue('TestName')
-    expect(inputField.value).toBe('TestName')
+    await searchInput.setValue('TestName');
+    expect(inputField.value).toBe('TestName');
 
-    expect(wrapper.vm.filterTopics(topic)).toBe(true)
+    expect(wrapper.vm.filterTopics(topic)).toBe(true);
   });
   test('onRowClick call router push', () => {
     const topic = { name: 'TestName' };
