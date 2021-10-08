@@ -1,16 +1,23 @@
 <template>
-  <component :is="layout">
-    <slot />
-  </component>
+  <div>
+    <component :is="layout">
+      <slot />
+    </component>
+    <errors-drawer />
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, markRaw, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import { isAuthenticated as isUserAuthenticated } from '@/modules/auth/utils';
+import ErrorsDrawer from '@/modules/errors/components/ErrorsDrawer.vue';
 
 export default defineComponent({
   name: 'DsnLayoutManager',
+  components: {
+    ErrorsDrawer,
+  },
   setup () {
     const route = useRoute();
     const layout = ref();

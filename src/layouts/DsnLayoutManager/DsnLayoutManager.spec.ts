@@ -1,5 +1,5 @@
 import { ComponentPublicInstance, nextTick } from 'vue';
-import { VueWrapper, mount } from '@vue/test-utils';
+import { VueWrapper, shallowMount } from '@vue/test-utils';
 import DsnLayoutManager from '@/layouts/DsnLayoutManager/DsnLayoutManager.vue';
 import { isAuthenticated } from '@/modules/auth/utils';
 
@@ -45,38 +45,42 @@ jest.mock('@/layouts/DsnLayoutNotFound/DsnLayoutNotFound.vue',
   }),
 );
 
-describe('AppLayout.vue', () => {
+describe('AppLayoutManager.vue', () => {
   let wrapper: VueWrapper<ComponentPublicInstance>;
 
   describe('when user\'s authorized', () => {
     beforeEach(async () => {
       (isAuthenticated as jest.Mock).mockImplementation(() => true);
-      wrapper = mount(DsnLayoutManager);
+      wrapper = shallowMount(DsnLayoutManager);
       await nextTick();
     });
 
     test('special layout is set', () => {
-      expect(wrapper.classes()).toContain('dsn-layout-not-found');
+      const DsnLayoutNotFound = wrapper.findComponent({ name: 'DsnLayoutNotFound' });
+      expect(DsnLayoutNotFound.exists()).toBeTruthy();
     });
 
     test('wrong layout is set', () => {
-      expect(wrapper.classes()).toContain('dsn-layout-default');
+      const DsnLayoutNonExistent = wrapper.findComponent({ name: 'DsnLayoutNonExistent' });
+      expect(DsnLayoutNonExistent.exists()).toBeFalsy();
     });
 
-    test('special layout is not set', () => {
-      expect(wrapper.classes()).toContain('dsn-layout-default');
+    test('special layout is not set and default layout is used', () => {
+      const DsnLayoutDefault = wrapper.findComponent({ name: 'DsnLayoutDefault' });
+      expect(DsnLayoutDefault.exists()).toBeTruthy();
     });
   });
 
   describe('when user\'s not authorized', () => {
     beforeEach(async () => {
       (isAuthenticated as jest.Mock).mockImplementation(() => false);
-      wrapper = mount(DsnLayoutManager);
+      wrapper = shallowMount(DsnLayoutManager);
       await nextTick();
     });
 
     test('special layout is not set', () => {
-      expect(wrapper.classes()).toContain('dsn-layout-auth');
+      const DsnLayoutAuth = wrapper.findComponent({ name: 'DsnLayoutAuth' });
+      expect(DsnLayoutAuth.exists()).toBeTruthy();
     });
   });
 });

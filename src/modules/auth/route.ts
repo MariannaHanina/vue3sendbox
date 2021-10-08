@@ -17,6 +17,7 @@ export function routerAuthHook (
 ): void {
   if (to.name !== 'Auth' && !isAuthenticated()) {
     next('/login');
+    return;
   }
   next();
 }

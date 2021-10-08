@@ -1,7 +1,7 @@
 <template>
   <dsn-button
     title="Show Errors"
-    class="bottom-0 absolute"
+    class="bottom-0 absolute left-2/4 w-14 -ml-7"
     @click="openErrorDrawer"
   >
     <el-icon>
@@ -20,10 +20,13 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import ErrorsPanel from './ErrorsPanel.vue';
+import DsnButton from '@/components/DsnButton/DsnButton.vue';
 
 export default defineComponent({
+  name: 'ErrorsDrawer',
   components: {
     ErrorsPanel,
+    DsnButton,
   },
   setup () {
     const drawerIsShown = ref(false);
