@@ -40,7 +40,7 @@ export default defineComponent({
     const logIn = async () => {
       try {
         await store.dispatch('auth/authRequest', credentials);
-        router.push({ name: 'Home' });
+        router.push('/');
       } catch (e) {
         DsnNotification({
           title: 'Authorization Error',
