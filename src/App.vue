@@ -1,5 +1,5 @@
 <template>
-  <dsn-layout-manager class="min-h-screen relative">
+  <dsn-layout-manager>
     <router-view />
   </dsn-layout-manager>
 </template>
