@@ -20,6 +20,9 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
 import ErrorsPanel from './ErrorsPanel.vue';
+// todo: There's strange problem with DsnButton,
+// when ErrorsDrawer is located in DsnLayoutManager.
+// This component is not visible as global.
 import DsnButton from '@/components/DsnButton/DsnButton.vue';
 
 export default defineComponent({
