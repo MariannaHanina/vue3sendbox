@@ -24,7 +24,7 @@
 import { useRouter } from 'vue-router';
 import { useStore } from 'vuex';
 import { defineComponent, ref } from 'vue';
-import { ElNotification } from 'element-plus';
+import DsnNotification from '@/components/DsnNotification';
 
 export default defineComponent({
   name: 'AuthForm',
@@ -42,7 +42,7 @@ export default defineComponent({
         await store.dispatch('auth/authRequest', credentials);
         router.push({ name: 'Home' });
       } catch (e) {
-        ElNotification({
+        DsnNotification({
           title: 'Authorization Error',
           message: e,
           type: 'error',
