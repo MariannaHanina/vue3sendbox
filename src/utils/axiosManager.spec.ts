@@ -1,9 +1,9 @@
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
 import AxiosManager from './axiosManager';
-import { httpErrorHandler } from './errorHandling';
+import { httpErrorHandler } from '@/modules/errors/utils';
 
 jest.mock('axios');
-jest.mock('./errorHandling');
+jest.mock('@/modules/errors/utils');
 
 describe('AxiosManager class', () => {
   let axiosManager: AxiosManager;
@@ -40,17 +40,23 @@ describe('AxiosManager class', () => {
 
     describe('setInterceptors', () => {
       let firstCallArgs: Array<()=>void>;
+      let secondCallArgs: Array<()=>void>;
 
       beforeEach(() => {
-        firstCallArgs = (axiosManager.axios.interceptors.response.use as jest.Mock).mock.calls[0];
+        firstCallArgs = (axiosManager.axios.interceptors.request.use as jest.Mock).mock.calls[0];
+        secondCallArgs = (axiosManager.axios.interceptors.response.use as jest.Mock).mock.calls[1];
       });
 
-      test('appointed interceptors for axios success response handler', () => {
-        expect(firstCallArgs[0]).toBe(axiosManager.httpResponseHandler);
+      test('appointed interceptors for axios success request handler', () => {
+        expect(firstCallArgs[0]).toBe(axiosManager.httpRequestHandler);
       });
 
       test('appointed interceptors for axios error handler', () => {
         expect(firstCallArgs[1]).toBe(httpErrorHandler);
+      });
+
+      test('appointed interceptors for axios success response handler', () => {
+        expect(secondCallArgs[0]).toBe(axiosManager.httpResponseHandler);
       });
     });
 

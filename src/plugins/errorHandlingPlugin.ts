@@ -1,5 +1,5 @@
 import { App } from 'vue';
-import { errorHandler, warnHandler } from '@/utils/errorHandling';
+import { errorHandler, warnHandler } from '@/modules/errors/utils';
 
 export default {
   install (app: App): void {

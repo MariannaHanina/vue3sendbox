@@ -20,7 +20,11 @@ import {
 
 import {
   ArrowUpBold,
+  Connection,
   Edit,
+  Expand,
+  Platform,
+  Warning,
 } from '@element-plus/icons';
 
 export type ComponentSize = 'large' | 'medium' | 'small' | 'mini';
@@ -60,6 +64,10 @@ export default {
     // иконки
     app
       .component('ArrowUpBold', ArrowUpBold)
-      .component('Edit', Edit);
+      .component('Connection', Connection)
+      .component('Edit', Edit)
+      .component('Expand', Expand)
+      .component('Platform', Platform)
+      .component('Warning', Warning);
   },
 };
