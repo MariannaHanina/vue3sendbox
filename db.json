@@ -360,5 +360,17 @@
             "bs": "target end-to-end models"
          }
       }
+   ],
+   "acls": [
+      {
+         "id": "id1",
+         "name": "Name1",
+         "principal": "principal1",
+         "resourceType": "resourceType1",
+         "patternType": "patternType1",
+         "operation": "operation1",
+         "host": "host1",
+         "permissionType": "permissionType1"
+       }
    ]
 }
