@@ -4,7 +4,7 @@ import {
   RouteRecordRaw,
   NavigationGuard,
 } from 'vue-router';
-import Overview from '../pages/OverviewPage.vue';
+import Overview from '../pages/ClusterOverview.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
