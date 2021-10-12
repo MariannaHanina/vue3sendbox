@@ -79,22 +79,31 @@
       <span>{{ data.topic.messages }}</span>
     </dsn-col>
   </dsn-row>
+  <dsn-heading-2>
+    Partition detail
+  </dsn-heading-2>
+  <overview-partitions :partitions="partitions" />
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue';
+import OverviewPartitions from '@/modules/partitions/components/OverviewPartitions.vue';
 
 import { getTopicByID } from './composables/getTopicByID';
+import { getAllPartitions } from '@/modules/partitions/composables/getAllPartitions';
 
 export default defineComponent({
   name: 'TopicPage',
+  components: { OverviewPartitions },
   props: {
     id: { type: String, required: true },
   },
   setup (props) {
     const data = getTopicByID(props.id);
+    const partitions = getAllPartitions(props.id);
 
     return {
       data,
+      partitions,
     };
   },
 

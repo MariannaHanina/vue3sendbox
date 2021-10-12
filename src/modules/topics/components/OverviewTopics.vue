@@ -60,7 +60,6 @@ export default defineComponent({
       type: Array as PropType<TTopic[]>,
       required: true,
     },
-    test: { type: Number, default: 0 },
   },
   setup (props) {
     const router = useRouter();
