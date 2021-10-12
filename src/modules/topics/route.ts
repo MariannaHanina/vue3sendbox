@@ -4,7 +4,7 @@ const route: RouteRecordRaw =
 {
   path: '/topics/:id',
   name: 'Topic',
-  component: () => import(/* webpackChunkName: "Overview" */ './TopicPage.vue'),
+  component: () => import(/* webpackChunkName: "Topic" */ './TopicPage.vue'),
   props: true,
 };
 
