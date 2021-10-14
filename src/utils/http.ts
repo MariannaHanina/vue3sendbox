@@ -25,4 +25,9 @@ export default class ApiHttpSingleton {
     const { data } = await this.axios.get(`${url}`, config);
     return data;
   }
+
+  async post<T, B> (url: string, data: T, config: AxiosRequestConfig = {}): Promise<B> {
+    const { data: responseData } = await this.axios.post(url, data, config);
+    return responseData;
+  }
 }
