@@ -16,6 +16,7 @@
 import { defineComponent, ref } from 'vue';
 
 export default defineComponent({
+  name: 'ACLFilter',
   emits: ['acls-filter'],
   setup (props, { emit }) {
     const searchText = ref('');
