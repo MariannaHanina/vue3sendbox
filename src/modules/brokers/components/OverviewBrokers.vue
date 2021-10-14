@@ -44,6 +44,7 @@ import { defineComponent, PropType } from 'vue';
 import { TBroker } from '../types';
 
 export default defineComponent({
+  name: 'OverviewBrokers',
   props: {
     brokers: {
       type: Array as PropType<TBroker[]>,

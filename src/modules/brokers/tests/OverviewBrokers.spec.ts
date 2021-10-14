@@ -25,6 +25,9 @@ describe('OverviewBrokers.vue', () => {
           ElTableColumn,
           Edit,
         },
+        directives: {
+          loading: jest.fn(),
+        },
       },
       props: {
         brokers: [],

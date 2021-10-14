@@ -15,7 +15,7 @@ jest.mock('vue-router', () => ({
   }),
 }));
 
-describe('OverviewBrokers.vue', () => {
+describe('OverviewTopics.vue', () => {
   let wrapper: VueWrapper<ComponentPublicInstance & { [key: string]: any }>;
   beforeEach(() => {
     wrapper = mount(OverviewTopics, {
@@ -30,6 +30,9 @@ describe('OverviewBrokers.vue', () => {
           ElRow,
           ElTable,
           ElTableColumn,
+        },
+        directives: {
+          loading: jest.fn(),
         },
       },
       props: {
