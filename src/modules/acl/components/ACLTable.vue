@@ -1,6 +1,5 @@
 <template>
   <dsn-table
-    v-loading="loading"
     :data="acls"
     class="mt-5"
   >
@@ -36,9 +35,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, toRefs } from 'vue';
+import { defineComponent, PropType } from 'vue';
 import { TAcl } from '../types';
-import useLoading from '@/composables/useLoading';
 
 export default defineComponent({
   name: 'ACLTable',
@@ -47,14 +45,6 @@ export default defineComponent({
       type: Array as PropType<TAcl[]>,
       required: true,
     },
-  },
-  setup (props) {
-    const { acls } = toRefs(props);
-    const { loading } = useLoading<TAcl>(acls);
-
-    return {
-      loading,
-    };
   },
 });
 </script>

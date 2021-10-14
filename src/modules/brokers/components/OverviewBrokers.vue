@@ -1,6 +1,5 @@
 <template>
   <dsn-table
-    v-loading="loading"
     :data="brokers"
     dense
   >
@@ -41,9 +40,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, toRefs } from 'vue';
+import { defineComponent, PropType } from 'vue';
 import { TBroker } from '../types';
-import useLoading from '@/composables/useLoading';
 
 export default defineComponent({
   name: 'OverviewBrokers',
@@ -52,14 +50,6 @@ export default defineComponent({
       type: Array as PropType<TBroker[]>,
       required: true,
     },
-  },
-  setup (props) {
-    const { brokers } = toRefs(props);
-    const { loading } = useLoading<TBroker>(brokers);
-
-    return {
-      loading,
-    };
   },
 });
 </script>

@@ -1,6 +1,5 @@
 <template>
   <dsn-table
-    v-loading="loading"
     :data="dataTable"
     @row-click="onRowClick($event)"
   >
@@ -53,7 +52,6 @@
 import { TTopic } from '@/modules/topics/types';
 import { defineComponent, ref, PropType, toRefs, watchEffect } from 'vue';
 import { useRouter } from 'vue-router';
-import useLoading from '@/composables/useLoading';
 
 export default defineComponent({
   name: 'OverviewTopics',
@@ -67,7 +65,6 @@ export default defineComponent({
     const router = useRouter();
 
     const dataTable = ref<TTopic[]>([]);
-    const { loading } = useLoading<TTopic>(dataTable);
     const searchTopicName = ref('');
 
     const { topics } = toRefs(props);
@@ -102,7 +99,6 @@ export default defineComponent({
       clearFilter,
       onRowClick,
       filterTopics,
-      loading,
     };
   },
 });

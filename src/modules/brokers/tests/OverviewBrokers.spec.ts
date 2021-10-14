@@ -8,12 +8,6 @@ import DsnInput from '@/components/DsnInput.vue';
 import { ElIcon, ElTable, ElTableColumn, ElCol, ElRow } from 'element-plus';
 import { Edit } from '@element-plus/icons';
 
-jest.mock('@/composables/useLoading', () => {
-  return () => ({
-    loading: true,
-  });
-});
-
 describe('OverviewBrokers.vue', () => {
   let wrapper: VueWrapper<ComponentPublicInstance>;
 

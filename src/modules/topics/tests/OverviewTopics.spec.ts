@@ -9,12 +9,6 @@ import { ElIcon, ElTable, ElTableColumn, ElCol, ElRow, ElInput } from 'element-p
 
 const mockRouterPush = jest.fn();
 
-jest.mock('@/composables/useLoading', () => {
-  return () => ({
-    loading: true,
-  });
-});
-
 jest.mock('vue-router', () => ({
   useRouter: () => ({
     push: mockRouterPush,
