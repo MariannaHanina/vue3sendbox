@@ -1,4 +1,3 @@
-import { Filter } from '@element-plus/icons';
 import { ref } from 'vue';
 import useFilter from './useFilter';
 
