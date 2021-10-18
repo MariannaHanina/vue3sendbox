@@ -5,6 +5,7 @@ import DsnForm from '@/components/DsnForm.vue';
 import DsnFormItem from '@/components/DsnFormItem.vue';
 import DsnButton from '@/components/DsnButton/DsnButton.vue';
 import DsnInput from '@/components/DsnInput.vue';
+import DsnInputNumber from '@/components/DsnInputNumber.vue';
 
 // Headings
 import DsnHeading1 from '@/components/DsnHeading1.vue';
@@ -25,6 +26,7 @@ export default function registerComponents (app: App): void {
     .component('DsnForm', DsnForm)
     .component('DsnFormItem', DsnFormItem)
     .component('DsnInput', DsnInput)
+    .component('DsnInputNumber', DsnInputNumber)
     .component('DsnButton', DsnButton)
     .component('DsnHeading1', DsnHeading1)
     .component('DsnHeading2', DsnHeading2)

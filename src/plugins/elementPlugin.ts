@@ -9,6 +9,7 @@ import {
   ElHeader,
   ElIcon,
   ElInput,
+  ElInputNumber,
   ElLoading,
   ElMenu,
   ElMenuItem,
@@ -54,10 +55,11 @@ export default {
       .use(ElHeader)
       .use(ElIcon)
       .use(ElInput)
-      .use(ElPageHeader)
+      .use(ElInputNumber)
       .use(ElLoading)
       .use(ElMenu)
       .use(ElMenuItem)
+      .use(ElPageHeader)
       .use(ElRow)
       .use(ElSwitch)
       .use(ElTable)
