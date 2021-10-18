@@ -25,7 +25,7 @@
       New
     </dsn-button>
     <el-dialog v-model="dialogVisible">
-      <topic-creation-form :create-callback="closeCrationModal" />
+      <topic-creation-form @create="closeCreationModal" />
     </el-dialog>
   </div>
 </template>
@@ -57,7 +57,7 @@ export default defineComponent({
       dialogVisible.value = true;
     };
 
-    const closeCrationModal = () => {
+    const closeCreationModal = () => {
       dialogVisible.value = false;
     };
 
@@ -66,7 +66,7 @@ export default defineComponent({
       topics,
       dialogVisible,
       showCreationModal,
-      closeCrationModal,
+      closeCreationModal,
     };
   },
 });

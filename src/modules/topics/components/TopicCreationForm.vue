@@ -43,14 +43,8 @@ import { addTopic } from '../api';
 
 export default defineComponent({
   name: 'TopicCreationForm',
-  props: {
-    createCallback: {
-      type: Function,
-      default: null,
-    },
-  },
-  setup (props) {
-    const createCallback = ref(props.createCallback);
+  emits: ['create'],
+  setup (_, { emit }) {
     const formRef = ref();
     const newTopic = ref({
       name: '',
@@ -79,7 +73,7 @@ export default defineComponent({
       form.validate(async (valid: boolean) => {
         if (valid) {
           await addTopic(newTopic.value);
-          createCallback.value();
+          emit('create');
         }
       });
     };
