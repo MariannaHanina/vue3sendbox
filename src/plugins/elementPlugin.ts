@@ -3,6 +3,8 @@ import {
   ElAlert,
   ElButton,
   ElCol,
+  ElDescriptions,
+  ElDescriptionsItem,
   ElDrawer,
   ElForm,
   ElFormItem,
@@ -49,6 +51,8 @@ export default {
       .use(ElAlert)
       .use(ElButton)
       .use(ElCol)
+      .use(ElDescriptions)
+      .use(ElDescriptionsItem)
       .use(ElDrawer)
       .use(ElForm)
       .use(ElFormItem)
