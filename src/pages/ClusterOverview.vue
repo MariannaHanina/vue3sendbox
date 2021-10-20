@@ -1,7 +1,10 @@
 <template>
-  <dsn-heading-1>Kafka Cluster Overview</dsn-heading-1>
+  <dsn-heading-1>Jarvis Cluster Overview</dsn-heading-1>
   <div class="mt-5">
-    Claster Overview
+    <cluster-summary
+      cluster-name="localhost:9092"
+      :cluster-summary="clusterSummary"
+    />
   </div>
 
   <div class="my-10">
@@ -32,11 +35,13 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
+import ClusterSummary from '../modules/cluster/components/ClusterSummary.vue';
 import OverviewBrokers from '../modules/brokers/components/OverviewBrokers.vue';
 import OverviewTopics from '../modules/topics/components/OverviewTopics.vue';
 
 import { getAllBrokers } from '@/modules/brokers/composables/getAllBrokers';
 import { getAllTopics } from '@/modules/topics/composables/getAllTopics';
+import { getClusterSummary } from '@/modules/cluster/composables/getClusterSummary';
 
 import { ElDialog } from 'element-plus';
 import TopicCreationForm from '@/modules/topics/components/TopicCreationForm.vue';
@@ -44,6 +49,7 @@ import TopicCreationForm from '@/modules/topics/components/TopicCreationForm.vue
 export default defineComponent({
   name: 'ClusterOverview',
   components: {
+    ClusterSummary,
     OverviewTopics,
     OverviewBrokers,
     ElDialog,
@@ -52,6 +58,8 @@ export default defineComponent({
   setup () {
     const { brokers } = getAllBrokers();
     const { topics } = getAllTopics();
+    const clusterSummary = getClusterSummary();
+
     const dialogVisible = ref(false);
     const showCreationModal = () => {
       dialogVisible.value = true;
@@ -62,6 +70,7 @@ export default defineComponent({
     };
 
     return {
+      clusterSummary,
       brokers,
       topics,
       dialogVisible,
