@@ -20,6 +20,8 @@ import DsnCol from '@/components/DsnLayouts/DsnCol.vue';
 import DsnTable from '@/components/DsnTable/DsnTable.vue';
 import DsnColumn from '@/components/DsnTable/DsnColumn.vue';
 
+import DsnPageHeader from '@/components/DsnPageHeader.vue';
+
 export default function registerComponents (app: App): void {
   app
     .component('DsnCol', DsnCol)
@@ -33,5 +35,6 @@ export default function registerComponents (app: App): void {
     .component('DsnNav', DsnNav)
     .component('DsnRow', DsnRow)
     .component('DsnTable', DsnTable)
-    .component('DsnColumn', DsnColumn);
+    .component('DsnColumn', DsnColumn)
+    .component('DsnPageHeader', DsnPageHeader);
 }
