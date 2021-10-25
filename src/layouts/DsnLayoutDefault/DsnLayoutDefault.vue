@@ -6,7 +6,7 @@
         <logout-button />
       </div>
     </el-header>
-    <div class="py-16 px-8">
+    <div class="pb-16 pt-4 px-8">
       <slot />
     </div>
   </div>

@@ -1,6 +1,6 @@
 import { ComponentPublicInstance } from 'vue';
-import { VueWrapper, mount } from '@vue/test-utils';
-import { ElPageHeader } from 'element-plus';
+import { VueWrapper, shallowMount } from '@vue/test-utils';
+import DsnPageHeader from '@/components/DsnPageHeader.vue';
 import NotFoundPage from '@/pages/notFound/NotFound.vue';
 
 const mockRouterGo = jest.fn();
@@ -12,21 +12,28 @@ jest.mock('vue-router', () => ({
 }));
 
 describe('NotFound.vue', () => {
-  let wrapper: VueWrapper<ComponentPublicInstance>;
+  let wrapper: VueWrapper<ComponentPublicInstance & typeof NotFoundPage>;
 
   beforeEach(() => {
-    wrapper = mount(NotFoundPage, {
+    wrapper = shallowMount(NotFoundPage, {
       global: {
         components: {
-          ElPageHeader,
+          DsnPageHeader,
         },
       },
     });
   });
 
-  test('click on Back button go to one stap back', () => {
-    wrapper.findComponent({ name: 'el-page-header' }).vm.$emit('back');
+  test('page has DsnPageHeader component', () => {
+    const dsnPageHeader = wrapper.findComponent({ name: 'dsn-page-header' });
 
-    expect(mockRouterGo).toHaveBeenCalledTimes(1);
+    expect(dsnPageHeader.exists()).toBeTruthy();
+  });
+
+  test('goBack method calls router method go', () => {
+    const vm = wrapper.vm;
+    vm.goBack();
+
+    expect(mockRouterGo).toHaveBeenCalled();
   });
 });

@@ -1,6 +1,7 @@
 <template>
   <div class="acl-page">
-    <dsn-heading-1 class="text-center">
+    <dsn-page-header content="ACLs" />
+    <dsn-heading-1 class="text-center pt-8">
       ACLs
     </dsn-heading-1>
     <acl-filter

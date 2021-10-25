@@ -22,6 +22,7 @@ import DsnColumn from '@/components/DsnTable/DsnColumn.vue';
 
 import DsnDescriptions from '@/components/DsnDescriptions.vue';
 import DsnDescriptionsItem from '@/components/DsnDescriptionsItem.vue';
+import DsnPageHeader from '@/components/DsnPageHeader.vue';
 
 export default function registerComponents (app: App): void {
   app
@@ -38,5 +39,6 @@ export default function registerComponents (app: App): void {
     .component('DsnTable', DsnTable)
     .component('DsnColumn', DsnColumn)
     .component('DsnDescriptions', DsnDescriptions)
-    .component('DsnDescriptionsItem', DsnDescriptionsItem);
+    .component('DsnDescriptionsItem', DsnDescriptionsItem)
+    .component('DsnPageHeader', DsnPageHeader);
 }

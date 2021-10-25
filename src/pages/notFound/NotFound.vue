@@ -1,7 +1,7 @@
 <template>
-  <el-page-header
+  <dsn-page-header
     content="404. Page Not Found"
-    @back="goBack"
+    :go-back="goBack"
   />
 </template>
 
