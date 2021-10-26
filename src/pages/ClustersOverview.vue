@@ -8,7 +8,7 @@
   </article>
   <article class="mt-14">
     <dsn-heading-2>Cognito Users</dsn-heading-2>
-    <cognito-users class="mt-10"/>
+    <cognito-users class="mt-10" />
   </article>
 </template>
 
