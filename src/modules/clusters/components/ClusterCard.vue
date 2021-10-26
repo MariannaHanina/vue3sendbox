@@ -1,9 +1,19 @@
 <template>
-  <el-card :body-style="{padding: 0}">
-    <header :class="$style.header">
+  <el-card
+    :body-style="{padding: 0}"
+    class="relative overflow-visible"
+  >
+    <header
+      :class="$style.header"
+      @mouseover="showDetails"
+      @mouseout="hideDetails"
+    >
       <span>{{ cluster.name }}</span>
     </header>
-    <main>
+    <main
+      v-show="displayDetails"
+      :class="$style.metrics"
+    >
       <ul class="p-5 text-sm">
         <li :class="$style.metric">
           Total topics:
@@ -27,7 +37,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue';
+import { defineComponent, PropType, ref } from 'vue';
 import { TClusterSummary } from '../types';
 
 export default defineComponent({
@@ -38,12 +48,30 @@ export default defineComponent({
       required: true,
     },
   },
+  setup () {
+    const displayDetails = ref(false);
+    const showDetails = () => {
+      displayDetails.value = true;
+    };
+    const hideDetails = () => {
+      displayDetails.value = false;
+    };
+
+    return {
+      displayDetails,
+      showDetails,
+      hideDetails,
+    };
+  },
 });
 </script>
 
 <style module>
 .header {
-  @apply bg-gray-800 text-white text-center p-6 h-24 flex items-center;
+  @apply bg-gray-800 text-white text-center p-6 h-24 flex items-center cursor-pointer rounded-t;
+}
+.metrics {
+  @apply absolute top-24 z-10 bg-white shadow w-full;
 }
 .metric {
   @apply mb-1 whitespace-nowrap;

@@ -6,35 +6,26 @@
       class="mt-10"
     />
   </article>
-  <article class="mt-10">
-    <dsn-heading-2>Users</dsn-heading-2>
-    Users List
+  <article class="mt-14">
+    <dsn-heading-2>Cognito Users</dsn-heading-2>
+    <cognito-users class="mt-10"/>
   </article>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import getClusters from '@/modules/clusters/composables/getClusters';
 import Clusters from '@/modules/clusters/components/Clusters.vue';
+import CognitoUsers from '@/modules/cognitoUsers/components/CognitoUsers.vue';
 
 export default defineComponent({
   name: 'ClustersOverview',
   components: {
     Clusters,
+    CognitoUsers,
   },
   setup () {
-    const clusters = [{
-      name: 'jarvis-nonprod-us-east-1-integration',
-      topicCount: 502,
-      partitionCount: 1907,
-      preferredReplicaPercent: 100,
-      underReplicatedCount: 0,
-    }, {
-      name: 'jarvis-nonprod-us-east-1-test1',
-      topicCount: 344,
-      partitionCount: 567,
-      preferredReplicaPercent: 60,
-      underReplicatedCount: 0,
-    }];
+    const clusters = getClusters();
 
     return {
       clusters,

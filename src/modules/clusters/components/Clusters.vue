@@ -1,16 +1,12 @@
 <template>
-  <dsn-row :gutter="20">
-    <dsn-col
+  <div class="grid grid-cols-5 gap-4">
+    <cluster-card
       v-for="cluster in clusters"
       :key="cluster.id"
-      :span="6"
-    >
-      <cluster-card
-        :cluster="cluster"
-        class="max-w-max"
-      />
-    </dsn-col>
-  </dsn-row>
+      :cluster="cluster"
+      class="max-w-max"
+    />
+  </div>
 </template>
 
 <script lang="ts">

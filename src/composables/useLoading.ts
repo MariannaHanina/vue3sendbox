@@ -5,7 +5,7 @@ interface ILoading {
 }
 
 export default function useLoading<T> (entities: Ref<T[]>): ILoading {
-  const loading = ref(true);
+  const loading = ref(!entities.value.length);
 
   watch(entities, (entities) => {
     if (entities.length) {
