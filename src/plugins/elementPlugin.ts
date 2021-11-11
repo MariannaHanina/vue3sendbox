@@ -1,6 +1,7 @@
 import { App } from 'vue';
 import {
   ElAlert,
+  ElAvatar,
   ElButton,
   ElCol,
   ElDescriptions,
@@ -28,6 +29,7 @@ import {
   Edit,
   Expand,
   Platform,
+  UserFilled,
   Warning,
 } from '@element-plus/icons';
 
@@ -49,6 +51,7 @@ export default {
     // Add here for using in app.
     app
       .use(ElAlert)
+      .use(ElAvatar)
       .use(ElButton)
       .use(ElCol)
       .use(ElDescriptions)
@@ -76,6 +79,7 @@ export default {
       .component('Edit', Edit)
       .component('Expand', Expand)
       .component('Platform', Platform)
+      .component('UserFilled', UserFilled)
       .component('Warning', Warning);
   },
 };

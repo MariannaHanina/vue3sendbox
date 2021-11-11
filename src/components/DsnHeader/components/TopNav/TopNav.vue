@@ -4,6 +4,8 @@
     :active-index="activeIndex"
     mode="horizontal"
     background-color="transparent"
+    text-color="#ffffff"
+    active-text-color="rgb(16, 185, 129)"
   />
 </template>
 
