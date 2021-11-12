@@ -12,7 +12,6 @@ import DsnHeading1 from '@/components/DsnHeading1.vue';
 import DsnHeading2 from '@/components/DsnHeading2.vue';
 
 // Layout elements
-import DsnHeader from '@/components/DsnHeader/DsnHeader.vue';
 import DsnNav from '@/components/DsnLayouts/DsnNav.vue';
 import DsnRow from '@/components/DsnLayouts/DsnRow.vue';
 import DsnCol from '@/components/DsnLayouts/DsnCol.vue';
@@ -35,7 +34,6 @@ export default function registerComponents (app: App): void {
     .component('DsnButton', DsnButton)
     .component('DsnHeading1', DsnHeading1)
     .component('DsnHeading2', DsnHeading2)
-    .component('DsnHeader', DsnHeader)
     .component('DsnNav', DsnNav)
     .component('DsnRow', DsnRow)
     .component('DsnTable', DsnTable)

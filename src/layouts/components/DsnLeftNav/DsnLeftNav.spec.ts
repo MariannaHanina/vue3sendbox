@@ -1,6 +1,6 @@
 import { ComponentPublicInstance } from 'vue';
 import { shallowMount, VueWrapper } from '@vue/test-utils';
-import TopNav from './TopNav.vue';
+import DsnLeftNav from './DsnLeftNav.vue';
 import DsnNav from '@/components/DsnLayouts/DsnNav.vue';
 
 jest.mock('vue-router', () => ({
@@ -32,7 +32,7 @@ describe('TopNav.vue', () => {
   let wrapper: VueWrapper<ComponentPublicInstance & Nav>;
 
   beforeEach(() => {
-    wrapper = shallowMount(TopNav, {
+    wrapper = shallowMount(DsnLeftNav, {
       global: {
         components: {
           DsnNav,

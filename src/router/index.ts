@@ -12,7 +12,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Overview',
     component: Overview,
     meta: {
-      inNav: true,
+      layout: 'DsnLayoutMain',
     },
   },
   {

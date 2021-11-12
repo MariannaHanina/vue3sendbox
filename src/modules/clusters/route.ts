@@ -1,7 +1,7 @@
 import { RouteRecordRaw } from 'vue-router';
 
 const route: RouteRecordRaw = {
-  path: '/cluster',
+  path: '/cluster/:id',
   name: 'Cluster',
   component: () => import(/* webpackChunkName: "Cluster" */ '@/modules/clusters/ClusterPage.vue'),
   meta: {
