@@ -1,7 +1,6 @@
 <template>
   <dsn-table
     :data="brokers"
-    dense
   >
     <dsn-column
       prop="host"

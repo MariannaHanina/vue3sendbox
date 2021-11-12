@@ -2,7 +2,7 @@
   <dsn-heading-1>Jarvis Cluster Overview</dsn-heading-1>
   <div class="mt-5">
     <cluster-summary
-      cluster-name="localhost:9092"
+      :cluster-name="clusterSummary.name"
       :cluster-summary="clusterSummary"
     />
   </div>
@@ -35,13 +35,13 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import ClusterSummary from '../modules/cluster/components/ClusterSummary.vue';
-import OverviewBrokers from '../modules/brokers/components/OverviewBrokers.vue';
-import OverviewTopics from '../modules/topics/components/OverviewTopics.vue';
+import ClusterSummary from '@/modules/clusters/components/ClusterSummary.vue';
+import OverviewBrokers from '@/modules/brokers/components/OverviewBrokers.vue';
+import OverviewTopics from '@/modules/topics/components/OverviewTopics.vue';
 
 import { getAllBrokers } from '@/modules/brokers/composables/getAllBrokers';
 import { getAllTopics } from '@/modules/topics/composables/getAllTopics';
-import { getClusterSummary } from '@/modules/cluster/composables/getClusterSummary';
+import { getClusterSummary } from '@/modules/clusters/composables/getClusterSummary';
 
 import { ElDialog } from 'element-plus';
 import TopicCreationForm from '@/modules/topics/components/TopicCreationForm.vue';

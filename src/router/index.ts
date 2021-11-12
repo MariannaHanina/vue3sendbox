@@ -4,7 +4,7 @@ import {
   RouteRecordRaw,
   NavigationGuard,
 } from 'vue-router';
-import Overview from '../pages/ClusterOverview.vue';
+import Overview from '../pages/ClustersOverview.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -12,7 +12,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Overview',
     component: Overview,
     meta: {
-      inNav: true,
+      layout: 'DsnLayoutMain',
     },
   },
   {
