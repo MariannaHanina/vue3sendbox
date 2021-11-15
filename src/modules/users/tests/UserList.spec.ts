@@ -1,15 +1,18 @@
 import { ComponentPublicInstance } from '@vue/runtime-core';
-import { mount, VueWrapper } from '@vue/test-utils';
+import { shallowMount, VueWrapper } from '@vue/test-utils';
 import UserList from '@/modules/users/components/UserList.vue';
 import { users } from './mockData';
 import { ElAlert } from 'element-plus';
 import DsnHeading2 from '@/components/DsnHeading2.vue';
+import DsnTable from '@/components/DsnTable/DsnTable.vue';
+import DsnColumn from '@/components/DsnTable/DsnColumn.vue';
+import DsnButton from '@/components/DsnButton/DsnButton.vue';
 
 describe('UserList.vue', () => {
   let wrapper: VueWrapper<ComponentPublicInstance>;
 
   beforeEach(() => {
-    wrapper = mount(UserList, {
+    wrapper = shallowMount(UserList, {
       props: {
         users: [],
       },
@@ -17,6 +20,9 @@ describe('UserList.vue', () => {
         components: {
           ElAlert,
           DsnHeading2,
+          DsnTable,
+          DsnColumn,
+          DsnButton,
         },
       },
     });
@@ -31,6 +37,6 @@ describe('UserList.vue', () => {
       users,
     });
 
-    expect(wrapper.find('ul').exists()).toBeTruthy();
+    expect(wrapper.findComponent({ name: 'DsnTable' }).exists()).toBeTruthy();
   });
 });

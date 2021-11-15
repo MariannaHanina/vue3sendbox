@@ -2,7 +2,7 @@
   <dsn-nav
     :items="navItems"
     :active-index="activeIndex"
-    active-text-color="rgb(16, 185, 129)"
+    active-text-color="rgb(5, 150, 105)"
   />
 </template>
 

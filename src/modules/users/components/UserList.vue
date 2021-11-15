@@ -1,6 +1,5 @@
 <template>
-  <article>
-    <dsn-heading2>User List</dsn-heading2>
+  <div>
     <el-alert
       v-if="!users.length"
       class="w-40 mx-auto my-5"
@@ -8,18 +7,35 @@
       type="info"
       :closable="false"
     />
-    <ul
-      v-else
-      class="my-5"
-    >
-      <li
-        v-for="user in users"
-        :key="user.id"
+    <dsn-table :data="users">
+      <dsn-column
+        prop="username"
+        label="User name"
+      />
+      <dsn-column
+        label="Settings"
+        width="170"
+        align="center"
       >
-        {{ user.name }} {{ user.surname }}
-      </li>
-    </ul>
-  </article>
+        <template #default="scope">
+          <dsn-button
+            size="mini"
+            type="success"
+            @click="editUser(scope.id)"
+          >
+            Edit
+          </dsn-button>
+          <dsn-button
+            size="mini"
+            type="danger"
+            @click="deleteUser(scope.id)"
+          >
+            Delete
+          </dsn-button>
+        </template>
+      </dsn-column>
+    </dsn-table>
+  </div>
 </template>
 
 <script lang="ts">
