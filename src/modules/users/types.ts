@@ -3,8 +3,7 @@ import { TRootState } from '@/store/types';
 
 export type TUser = {
   id: string;
-  name: string;
-  surname: string;
+  username: string;
 }
 
 // Store types

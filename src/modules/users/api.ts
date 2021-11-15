@@ -2,12 +2,10 @@ import { TUser } from './types';
 
 const users: TUser[] = [{
   id: '1',
-  name: 'Denis',
-  surname: 'Kurov',
+  username: 'Denis Kurov',
 }, {
   id: '2',
-  name: 'Marianna',
-  surname: 'Khanina',
+  username: 'Marianna Khanina',
 }];
 
 export default {

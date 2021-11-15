@@ -8,6 +8,7 @@
       v-for="item in items"
       :key="item.name"
       :index="item.path"
+      class="hover:bg-gray-100"
     >
       {{ item.name }}
     </el-menu-item>
