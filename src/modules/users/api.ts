@@ -8,8 +8,6 @@ const users: TUser[] = [{
   username: 'Marianna Khanina',
 }];
 
-export default {
-  getAll (): Promise<TUser[]> {
-    return Promise.resolve(users);
-  },
-};
+export async function fetchUsers (): Promise<TUser[]> {
+  return await Promise.resolve(users);
+}

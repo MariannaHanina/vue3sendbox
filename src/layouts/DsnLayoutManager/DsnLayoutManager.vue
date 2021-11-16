@@ -31,23 +31,23 @@ export default defineComponent({
       }
     };
 
-    watch(
-      () => route.meta,
-      async meta => {
+    watch(() => route,
+      async ({ meta, path }) => {
         try {
           const layoutName = meta.layout as string;
           const layoutComponent = await getLayout(layoutName);
-
           layout.value = markRaw(layoutComponent);
         } catch (e) {
           const isAuthenticated = isUserAuthenticated();
-          const defaultLayoutName = isAuthenticated ? 'DsnLayoutDefault' : 'DsnLayoutAuth';
+          const authLayout = path === '/' ? 'DsnLayoutMain' : 'DsnLayoutDefault';
+          const defaultLayoutName = isAuthenticated ? authLayout : 'DsnLayoutAuth';
           const defaultLayoutComponent = await getLayout(defaultLayoutName);
 
           layout.value = markRaw(defaultLayoutComponent);
         }
       },
       {
+        deep: true,
         immediate: true,
       },
     );

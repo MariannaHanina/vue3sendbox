@@ -9,7 +9,7 @@ jest.mock('@/modules/users/api.ts', () => {
   const usersData = require('./mockData');
 
   return {
-    getAll: jest.fn().mockResolvedValue(usersData.users),
+    fetchUsers: jest.fn().mockResolvedValue(usersData.users),
   };
 });
 
