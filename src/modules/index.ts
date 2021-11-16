@@ -1,5 +1,6 @@
 import './errors';
 import './auth';
+import './currentCognitoUser';
 import './users';
 import './clusters';
 import './brokers';

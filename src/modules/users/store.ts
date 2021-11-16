@@ -1,7 +1,7 @@
 import { Module, MutationTree, ActionTree } from 'vuex';
 import { TRootState } from '@/store/types';
 import { TUsersState, TUsersMutations, TUsersActions } from './types';
-import usersApi from './api';
+import { fetchUsers } from './api';
 
 export const state: TUsersState = {
   users: [],
@@ -15,7 +15,7 @@ export const mutations: MutationTree<TUsersState> & TUsersMutations = {
 
 export const actions: ActionTree<TUsersState, TRootState> & TUsersActions = {
   async fetchUsers ({ commit }) {
-    const users = await usersApi.getAll();
+    const users = await fetchUsers();
     commit('SET_USERS', users);
   },
 };

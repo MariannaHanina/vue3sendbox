@@ -1,3 +1,5 @@
+import './styles/tailwind.css';
+
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
@@ -11,8 +13,6 @@ import ws from './plugins/websocketPlugin';
 
 import registerComponents from './registerComponents';
 import '@/modules';
-
-import './styles/tailwind.css';
 
 const app = createApp(App);
 

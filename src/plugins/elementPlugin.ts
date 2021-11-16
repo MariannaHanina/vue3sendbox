@@ -18,6 +18,7 @@ import {
   ElMenu,
   ElMenuItem,
   ElPageHeader,
+  ElPopover,
   ElRow,
   ElSwitch,
   ElTable,
@@ -69,6 +70,7 @@ export default {
       .use(ElMenu)
       .use(ElMenuItem)
       .use(ElPageHeader)
+      .use(ElPopover)
       .use(ElRow)
       .use(ElSwitch)
       .use(ElTable)
